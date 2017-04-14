@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒计时</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+			margin: 30px auto;
+			line-height: 60px;
+			font-size: 24px;
+			text-align: center;
+			}
+			#box span {
+			display: inline-block;
+			color: #fff;
+			background: #000;
+			margin-top: 40px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+		window.onload 	= function () {
+			var oBox 	= document.getElementById('box'),
+				oColor  = ['#FF0000','#FF7F00','#FFFF00','#00FF00','#00FFFF', '#0000FF','#8B00FF'];
+		
+		
+		
+				var today = new Date();
+				//定义结束时间
+				var overTime = new Date('3/23/2017 21:00:00');
+				//计算中间的相差时间除以1000以秒数返回，方便计算
+				var bad = (overTime.getTime() - today.getTime()) / 1000 ;
+				//获取天数1天等于24小时     1小时等于60分钟      1分钟等于60秒
+				var oDay = parseInt(bad / (24*60*60));
+				//获取1小时等于60分钟】 剔除掉整的天数
+				var oHours = parseInt(bad / (60*60)%24);
+				//获取分钟数  剔除掉整的小时
+				var oMinutes = parseInt(bad / (60)%60);
+				//获取秒数 剔除掉整的分钟
+				var oSeconds = parseInt(bad % 60);
+				oBox.innerHTML =  '<span>放学倒计时:</span>'
+								+ "<span>" + zero(oDay) + "天</span>"
+								+ "<span>" + zero(oHours) + "时</span>" 
+								+ "<span>" + zero(oMinutes) + "分</span>" 
+								+"<span>" + zero(oSeconds) + "秒</span>"
+								+'<br>'+
+								'<span>现在时间:'+ today +'</span>';
+		
+			//倒计时函数
+			setInterval(function () {
+				//定义当前时间
+				var today = new Date();
+				console.log(today);
+				//定义结束时间
+				var overTime = new Date('3/23/2017 21:00:01');
+				console.log(overTime);
+				//计算中间的相差时间除以1000以秒数返回，方便计算
+				var bad = (overTime.getTime() - today.getTime()) / 1000 ;
+				console.log(bad);
+				//获取天数1天等于24小时     1小时等于60分钟      1分钟等于60秒
+				var oDay = parseInt(bad / (24*60*60));
+				//获取1小时等于60分钟】 剔除掉整的天数
+				var oHours = parseInt(bad / (60*60)%24);
+				//获取分钟数  剔除掉整的小时
+				var oMinutes = parseInt(bad / (60)%60);
+				//获取秒数 剔除掉整的分钟
+				var oSeconds = parseInt(bad % 60);
+				
+				//随机字体颜色
+				var Sj = Math.floor(Math.random() * oColor.length);
+				//下面将内容插入容器里
+				/*oBox.innerHTML =  '<span style="color:'+ oColor[Sj] +';">放学倒计时:</span>'
+								+ "<span>" + oDay + "天</span>"
+								+ "<span>" + oHours + "时</span>" 
+								+ "<span>" + oMinutes + "分</span>" 
+								+"<span>" + oSeconds + "秒</span>"
+								+'<br>'+
+								'现在时间<span  style="color:'+ oColor[Sj] +';">'+ today +'</span>';
+								
+							
+				},1000);*/
+				oBox.innerHTML =  '<span style="color:'+ oColor[Sj] +';">放学倒计时:</span>'
+								+ "<span>" + zero(oDay) + "天</span>"
+								+ "<span>" + zero(oHours) + "时</span>" 
+								+ "<span>" + zero(oMinutes) + "分</span>" 
+								+"<span>" + zero(oSeconds) + "秒</span>"
+								+'<br>'+
+								'<span  style="color:'+ oColor[Sj] +';">现在时间:'+ today +'</span>';
+								
+							
+				},1000);
+				
+				//假如为个位数字时前面加字符串0；
+			function zero(n){
+				return n < 10 ? '0'+n:n;
+			}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

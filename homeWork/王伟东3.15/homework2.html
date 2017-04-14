@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>求出1-1/2+1/3-1/4…..1/100的和 var i=1</title>
+		
+		<script type="text/javascript">
+			var iA = 0;
+
+			for(var i = 1;i <= 100;i++){
+				
+				if(i % 2 === 0){
+					
+				iA -= 1 / i;
+				
+			}
+				else{
+				
+				iA += 1 / i; 
+			}
+			}
+				alert(iA);
+
+		</script>
+		
+	</head>
+	<body>
+	</body>
+</html>

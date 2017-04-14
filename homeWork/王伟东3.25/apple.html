@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>苹果菜单栏</title>
+		<style>
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				position: absolute;
+				width: 100%;
+				bottom: 50%;
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				//获取盒子box，获取盒子里的每一个img元素，声明一个空数组，
+				var oBox = $('box'),
+					oImg = oBox.getElementsByTagName('img'),
+					aWidth = [];
+					//循环遍历每一个img，往空数组里添加每一个图片的实际宽度，并且第i个的宽度等于
+					//实际宽度除于2，然后可能为小数， 取整
+					for(var i = 0; i < oImg.length;i++){
+						aWidth.push(oImg[i].offsetWidth);
+						oImg[i].width = parseInt(oImg[i].offsetWidth / 2);
+						console.log(aWidth);
+					}
+					//添加鼠标移动事件
+					document.onmousemove = function (ev){
+						//事件源兼容
+					    var ev = ev || window.ev;
+					    //循环遍历img
+					    for (var i = 0; i < oImg.length; i++){
+					    	//a是鼠标到图片中心的x距离
+							//b是鼠标到图片中心的y距离
+							//Math.sqrt(a*a+b*b)是鼠标到图片中心的最短距离
+							//iScale是表示缩放，鼠标在图片中心时它100%
+							//距离图片中心越远缩放值就越小
+							//当距离超过150时（这是缩放是50%）不再减小缩放值
+							//最后一步是把缩放应用到图片上
+
+
+					    	//变量 a = 鼠标事件发生的时候事件源距离浏览器的X轴的水平坐标 - 第i个img的左偏移距离 - 第i个img的实际宽度  / 2
+							var a = ev.clientX - oImg[i].offsetLeft - oImg[i].offsetWidth / 2;
+							//变量b = 鼠标事件发生的时候事件源距离浏览器的Y轴的垂直坐标- 第i个img头部偏移距离 - oBox的头部偏移距离-第i个img的实际高度 /  2
+   							var b = ev.clientY - oImg[i].offsetTop - oBox.offsetTop - oImg[i].offsetHeight / 2;
+   							//变量Scale为缩放范围 = 1 - 开平方（变量a * a +  b * b） / 300,
+   							//显示出事件发生时鼠标指针的坐标：
+						    var iScale = 1 - Math.sqrt(a * a + b * b) / 300;
+						    //判断如果范围小于0.5  ，范围等于0.5，
+						    if (iScale < 0.5){
+						   		iScale = 0.5;
+						    }
+						    //第i个图片的宽度 = 第i个图片的宽度 * 缩放范围。
+						    oImg[i].width = aWidth[i] * iScale
+						    
+						}
+					}
+				}
+			//封装函数
+			function $(id){
+				return document.getElementById(id);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/1.png"/>
+			<img src="img/2.png"/>
+			<img src="img/3.png"/>
+			<img src="img/4.png"/>
+			<img src="img/5.png"/>
+			<img src="img/6.png"/>
+			<img src="img/7.png"/>
+			<img src="img/8.png"/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			h2{
+				font-weight: 500;
+				text-align: center;
+				margin-top: 60px;
+			}
+			#list{
+				margin:auto;
+				width:80%;
+				list-style: none;
+				margin-top:50px;
+				background-color:rgba(201,182,34,.4)
+			}
+			#list li{
+				padding: 10px 0;
+				border-bottom: 1px dashed palevioletred;
+				line-height:66px;
+			}
+			#list .name{
+				width: 80px;
+				margin-left: 50px;
+				float: left;
+				color: coral;
+			}
+			#list .con{
+				margin-left: 180px;
+			}
+			#list .date{
+				margin-left: 80%;
+				color: #aaa;
+			}
+			#inbox{
+				margin-top: 20px;
+				text-align: center;
+			}
+			#inbox a{
+				text-decoration: none;
+				color: #000;
+				padding: 4px 66px;
+				border: 1px double #bbb;
+			}
+			#inbox .active{
+				background-color:#C83838;
+				color: #fff;
+			}
+		</style>
+		
+		<script type="text/javascript" src="common.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var 
+					oList = $('list');
+					
+			
+				promiseAjax({
+					type:'GET',
+					url:'http://localhost/homeWork/wwd4.11/paging/paging.php',
+					data: {page:1},
+					fn: function (data){
+					data = JSON.parse(data);
+				
+					data.forEach(function (v) {
+							var oLi = document.createElement('li');
+							oLi.innerHTML =`<div class="name">${v.name}</div>
+			<div class="con">${v.con}</div>
+			<div class="date">${v.date}</div>`;
+			
+						oList.appendChild(oLi);
+						
+						});
+						
+					}
+					
+				});
+				
+				
+				
+				
+				var 
+					oInbox	 = $('inbox'),
+					aA		 = Array.from(oInbox.children);
+					
+				aA.forEach(function(v){
+					v.onclick = function(){
+						aA.forEach(function (n) {
+						n.className = '';
+					});
+					this.className = 'active';
+						promiseAjax({
+							type:'GET',
+							url:'http://localhost/homeWork/wwd4.11/paging/paging.php',
+							data:{page: this.getAttribute('data-page')},
+							fn:function(data){
+								oList.innerHTML = '';
+								
+							data  = JSON.parse(data);
+							data.forEach(function (v) {
+							var oLi = document.createElement('li');
+							oLi.innerHTML =`<div class="name">${v.name}</div>
+			<div class="con">${v.con}</div>
+			<div class="date">${v.date}</div>`;
+			
+						oList.appendChild(oLi);
+							});
+						}
+					});
+				}
+			});
+		}
+		</script>
+	</head>
+	<body>
+		<h2>留言分页</h2>
+		
+			<ul id="list">
+				
+			</ul>
+			<div id="inbox">
+				<a href="javascript:;" data-page='1' class="active">1</a>
+				<a href="javascript:;" data-page='2'>2</a>
+				<a href="javascript:;" data-page='3'>3</a>
+			</div>
+
+	</body>
+</html>

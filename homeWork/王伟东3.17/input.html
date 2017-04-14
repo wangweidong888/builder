@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>输入框触发事件</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background:rgba(200,145,130,.8);
+				color: #FF0000;
+				font-size: 26px;
+				text-align: center;
+				font-family: "微软雅黑";
+			}
+			textarea{
+				resize: none;
+				margin: 80px auto;
+				display: block;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				var 
+					oA = document.getElementById('a');
+			
+			oA.onchange = function () {
+				con(oA);
+			} 
+			
+			function con(obj) {
+					console.log(obj.value);
+				}
+			
+			}
+		</script>
+	</head>
+	<body>
+	文本框内内容可在控制台查看
+		<textarea id="a" rows="20" cols="80"></textarea>
+	</body>
+</html>

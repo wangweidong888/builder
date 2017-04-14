@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>编写一个函数，计算两个数字的和、差、积、商</title>
+		
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+			body{
+				background: url(1489192921735.jpg) no-repeat center center;
+				background-size:cover ;
+				height: 660px;
+				overflow: hidden;
+				font-family: "微软雅黑";
+				position: relative;
+			}
+			form{
+				width: 600px;
+				height: 180px;
+				background: rgba(152,220,220,.8);
+				display: block;
+				position: absolute;
+				top: 30px;
+				right: 140px;
+				border-radius:40px ;
+			}
+			input{
+				width: 200px;
+				height: 30px;
+				border: 0;
+				margin-top: 70px;
+				background: rgba(252,120,220,.5);
+				font-size: 16px;
+				font-family: "微软雅黑";
+				border-radius: 5px;
+			}
+			button{
+				height: 30px;
+				width: 80px;
+				display: block;
+				margin-top: -30px;
+				margin-left: 480px;
+				background: rgba(252,120,220,.5);
+				border-radius: 5px;
+				border: 0;
+				cursor: pointer;
+				font-family: "微软雅黑";
+				color: #fff;
+			}
+		</style>
+		<script type="text/javascript">
+			
+			window.onload = function () {
+				//获取变量
+				var
+					oA = $('a'),
+					oB = $('b'),
+					oBtn = $('btn');
+				//添加点击事件
+				oBtn.onclick = function () {
+					var 
+					iA = Number(oA.value),
+					iB = Number(oB.value);
+					
+					
+					alert('相加'+sum(iA,iB));
+					alert('相减'+minus(iA,iB));
+					alert('相乘'+product(iA,iB));
+					alert('相除'+dicvide(iA,iB));
+				//相加
+				function sum (x,y) {
+					return x + y;
+				}
+				//相减
+				function minus (x,y) {
+					return x - y;
+				}
+				//相乘
+				function product (x,y) {
+					return x * y;
+				}
+				//相除
+				function dicvide (x,y) {
+					return x / y;
+				}
+				}
+				function $(id){
+					return document.getElementById(id)
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<form action="javascript:;">
+			<input type="text" id="a"  style="margin-left: 50px;" placeholder="             请输入数字"/>
+			<input type="text" id="b" placeholder="             请输入数字"/>
+			<button id="btn">计算</button>
+		</form>
+	</body>
+</html>

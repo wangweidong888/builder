@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>以下是某班级一次考试的成绩表。请计算总成绩，并按总成绩排名。统计各单科成绩第一名，输出其成绩与学号。</title>
+		<script type="text/javascript">
+			var student = [
+			{
+				studentId:1,
+				chinese : 105,
+				math : 62,
+				english : 118,
+			},
+			{
+				studentId : 2,
+				chinese : 89,
+				math :78,
+				english : 120,
+			},
+			{
+				studentId : 3,
+				chinese : 86,
+				math : 64,
+				english : 80,
+			},
+			{
+				studentId : 4,
+				chinese : 78,
+				math : 99,
+				english : 91,
+			},
+			{
+				studentId : 5,
+				chinese : 107.5,
+				math : 97,
+				english : 70,
+			},
+			{
+				studentId : 6,
+				chinese : 112,
+				math : 61,
+				english : 92,
+			}
+			];
+			
+			student.sort(function(a,b){
+				if(a.chinese+a.math+a.english < b.chinese+b.math+b.english){
+					return true;
+				}else{
+					return false;
+				}
+			});
+			console.log(student)
+			
+			student.sort(function(a,b){
+				if(a.chinese<b.chinese){
+					return true;
+				}else{
+					return false;
+				}
+			});
+			console.log(student)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

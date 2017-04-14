@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。</title>
+		<script type="text/javascript">
+			
+			
+			var group = [1,2,3,8,9,12,15],
+				num	  = 10;
+				
+			if(num > group[group.length - 1]){
+				group.push(num);
+			}else{
+				for(var i = 0;i < group.length;i++){
+					if(group[i] > num){
+						group.splice(i,0,num);
+						break;
+					}
+				}
+			}
+			console.log(group);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>九宫格拖拽</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		#box {
+			margin: 30px auto;
+			width: 400px;
+			height: 400px;
+			border: 1px solid #ccc;
+		}
+		img{
+			display: block;
+			width: 120px;
+			height: 120px;
+			position: absolute;
+		}
+		#box li{
+			width: 120px;
+			height: 120px;
+			font-size: 36px;
+		}
+		#box .active {
+			z-index: 1;
+			background: blue;
+		}
+
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBox = document.getElementById('box'),
+				aLi  = oBox.getElementsByTagName('img'),
+				oBoxL = oBox.offsetLeft,
+				oBoxT = oBox.offsetTop;
+				console.log(aLi);
+			// 循环设置位置
+			for(var i = 0; i < aLi.length; i++) {
+				// 计算位置
+				var
+					iCol = i%3,
+					iRow = Math.floor(i / 3);
+				aLi[i].style.left = oBoxL + iCol * 130 + 10 + 'px';
+				aLi[i].style.top  = oBoxT + iRow * 130 + 10 + 'px';
+
+				// 添加拖拽效果
+				aLi[i].index = i;
+				aLi[i].show = i;
+				aLi[i].onmousedown = function (ev) {
+					var ev = ev || window.event;
+					var oThat = this;
+					if(this.setCapture) {
+						this.setCapture();
+					}
+
+					var
+						iX = ev.clientX - this.offsetLeft,
+						iY = ev.clientY - this.offsetTop;
+
+					// 提高显示的优先级
+					this.className = 'active';
+
+					document.onmousemove = function (ev) {
+						var ev = ev || window.event;
+						var
+							iL = ev.clientX - iX,
+							iT = ev.clientY - iY;
+
+						oThat.style.left = iL + 'px';
+						oThat.style.top  = iT + 'px';
+
+
+						// 位置交换
+						for(var i = 0; i < aLi.length; i++) {
+							if(
+								i !== oThat.index
+								&& 
+								oThat.offsetLeft + oThat.offsetWidth > aLi[i].offsetLeft + aLi[i].offsetWidth / 2
+								&&
+								oThat.offsetTop + oThat.offsetHeight > aLi[i].offsetTop + aLi[i].offsetHeight / 2
+								&&
+								aLi[i].offsetLeft + aLi[i].offsetWidth / 2>= oThat.offsetLeft
+								&&
+								aLi[i].offsetTop + aLi[i].offsetHeight / 2>= oThat.offsetTop
+							){
+								// 计算交换后的位置
+								var iIndex= oThat.show;
+								var
+								iCol = iIndex % 3,
+								iRow = Math.floor(iIndex / 3);
+							aLi[i].style.left = oBoxL + iCol * 130 + 10 + 'px';
+							aLi[i].style.top  = oBoxT + iRow * 130 + 10 + 'px';
+
+								// 交换索引
+								var iTemp = aLi[i].show;
+								aLi[i].show = oThat.show;
+								oThat.show = iTemp;
+							}
+						}
+					}
+					document.onmouseup = function () {
+						document.onmousemove = null;
+						document.onmouseup = null;
+
+						if(aLi[oThat.index].releaseCapture) {
+							aLi[oThat.index].releaseCapture();
+						}
+
+						// 去掉显示的优先级
+						oThat.className = '';
+
+						// 将被拖拽的元素放到它应该在的位置
+						var iIndex= oThat.show;
+						var
+						iCol = iIndex%3,
+						iRow = Math.floor(iIndex / 3);
+					oThat.style.left = oBoxL + iCol * 130 + 10 + 'px';
+					oThat.style.top  = oBoxT + iRow * 130 + 10 + 'px';
+					}
+					// 阻止浏览器默认行为
+					return false;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="box">
+		<li><img src="王伟东3.27/img/1.jpeg"></li>
+		<li><img src="王伟东3.27/img/2.jpeg"></li>
+		<li><img src="王伟东3.27/img/3.jpeg"></li>
+		<li><img src="王伟东3.27/img/4.jpeg"></li>
+		<li><img src="王伟东3.27/img/5.jpeg"></li>
+		<li><img src="王伟东3.27/img/6.jpeg"></li>
+		<li><img src="王伟东3.27/img/7.jpeg"></li>
+		<li><img src="王伟东3.27/img/8.jpeg"></li>
+		<li><img src="王伟东3.27/img/9.jpeg"></li>
+	</ul>
+</body>
+</html>

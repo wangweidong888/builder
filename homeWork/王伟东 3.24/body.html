@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width:100%;
+				height: 100%;
+				background-color: red;
+			}
+			#one{
+				width: 100%;
+				height: 100%;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				var oOne = document.getElementById('one'),
+					oBtn = document.getElementById('btn');
+				
+				
+				
+				
+
+				oBtn.onclick = function () {
+					var sTr = '#';
+					function getC() {
+				for(var i = 0;i < 6;i++){
+					var Sj = Math.floor(Math.random()*16);
+					var Hx = Sj.toString(16);
+					sTr += Hx;
+					}
+					return sTr.toUpperCase();
+				}
+				var oColor = getC();
+					document.body.style.backgroundColor = oColor;
+					
+				}
+				
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<button id="btn">换肤</button>
+	</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			p{
+				color: #FF0000;
+				text-indent: 80px;
+			}
+			h2{
+				height: 50px;
+				margin-top:40px;
+				text-indent: 40px;
+				color: gray;
+			}
+			span{
+				display: inline-block;
+				width: 80px;
+				height: 24px;
+			}
+			h1{
+				font-size: 30px;
+				text-indent: 40px;
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		
+		<h1>数组Array方法</h1>
+		
+		<p>.push<span></span>添加元素至数组末尾。</p>
+		<p>.unshift<span></span> 		添加元素至数组开头</p>
+		<p>.pop <span></span>			删除数组末尾元素</p>
+		<p>.shift <span></span>			删除数组开头元素</p>
+		<p>.splice  <span></span>		万能添加删除</p>
+		<p>.split 	<span></span>		将数组分割成字符串</p>
+		<p>.join  	<span></span>		将数组进行分割用‘，‘ 隔开</p>
+	  <p> ❤❤.slice 	<span></span>		将数组从指定位置到结束位置， 不包括结束位置，数组分割   //.selic，从开始位置到结束位置，不包括结束位置，分割数组。</p>
+		<p>.concat 	<span></span>	将两个或者更多数组结合成一个数组。 </p>
+		<p>.reverse 	<span></span>	将数组进行反转 改变原数组</p>
+		<p>.sort   	<span></span>	对数组进行排序， 如果没有参数， 则对数字编码进行排序</p>
+		<p>.bind   	<span></span>	对函数的上下文的this指向</p>
+		<p>.map  		<span></span>	映射数组，返回新数组</p>
+		<p>.forEach  	<span></span>	遍历数组</p>
+		<p>.filter   	<span></span>	过滤数组，返回新数组，， 回调函数为布尔值</p>
+		<p>.some 		<span></span>	只要数组中有一个符合条件</p>
+		<p>.every  	<span></span>	数组内容全部符合要求</p>
+		<p>.indexOf 	<span></span>	从头至尾进行查找，返回索引值， 没有的话返回-1  </p>
+		<p>.lastIndexOf 	<span></span>同上相反。</p>
+		<p>.reduce  		<span></span>递归   （之前值，当前值，索引值，数组）</p>
+		<p>.reduceRight 	<span></span>从右至左递归</p>
+		<p>.isArray  	<span></span>	判断是否为数组， </p>
+		<p>.trim     	<span></span>	消除开头和结尾的空白</p>
+		
+		
+		
+		
+		
+		
+		<h1>math方法</h1>
+		
+		<p>PI 			<span></span>	返回圆周率 </p> 
+		<p>math.round 	<span></span>	四舍五入 </p> 
+		<p>math.min 	<span></span>	返回最小值 </p> 
+		<p>math.max 		<span></span>返回最大值 </p> 
+	  <p> ❤❤math.ceil 	<span></span>	向上取整 </p> 
+	   <p>math.floor 		<span></span>向下取整 </p> 
+	    <p>math.abs 		<span></span>绝对值 </p> 
+	    <p>math.sin（）		<span></span>正弦 </p> 
+	    <p>math.cos（）		<span></span>余弦 </p> 
+	    <p>math.random 	<span></span>取大于0小于1的随机数 </p> 
+	    <p>math.pow 	<span></span>	次方 </p> 
+	  <p>❤❤ math.sqrt 		<span></span>开平方 </p> 
+	  
+	  
+	  
+	  
+	    <h1>string方法</h1>
+	    <p>.charAt 		<span></span>返回值所在位置 </p> 
+	    <p>.charCodeAt <span></span>	返回所在位置值的编码 </p> 
+	    <p>string.formCharCode <span></span>  将编码转换成字符 </p> 
+	    <p>indexOf    	<span></span>	检查索引，没有返回-1 </p> 
+	    <p>lastIndexOf 	<span></span>相反 </p> 
+	    <p>match 		<span></span>	在字符集中检索指定值返回的值是数组，没有返回null </p> 
+	    <p>seach 		<span></span>	返回出现的位置，查找不到返回-1 </p> 
+	    <p>replace 		<span></span>需替换的字符，替换后的字符 </p> 
+	    <p>substring 	<span></span>	跟slice一样 </p> 
+	    <p>slice 		<span></span>	从开始的值到结束的值，不包括结束的值。 </p> 
+	    <p>split 		<span></span>	将字符串切割成数组 </p> 
+	    <p>toLowerCase <span></span>	将字符串改为小写字母 </p> 
+	    <p>toUpperCase 	<span></span>将字符串改为大写字母 </p> 
+	    
+	    
+	    
+	    
+	    
+	     <h1>Date方法</h1>
+	     
+		<p>getDate()：<span></span>从 Date 对象返回某天1~31 </p> 
+		<p>getMonth()：<span></span>从 Date 对象返回月份 (0 ~ 11)。 </p> 
+		<p>getFullYear()：<span></span>从 Date 对象以四位数字返回年份。 </p> 
+		<p>getDay()：<span></span>从 Date 对象返回一周中的某一天 (0 ~ 6)。 其中0代表星期日。 </p> 
+		<p>getHours()：<span></span>返回 Date 对象的小时 (0 ~ 23)。 </p>  
+		<p>getMinutes()：<span></span>返回 Date 对象的分钟 (0 ~ 59)。 </p>  
+		<p>getSeconds()：<span></span>返回 Date 对象的秒数 (0 ~ 59)。 </p>  
+		<p>getMilliseconds()：<span></span>返回 Date 对象的毫秒(0 ~ 999)。 </p>  
+		<p>getTime()：<span></span>返回 1970 年 1 月 1 日至今的毫秒数。 </p> 
+		
+		
+		
+		<p>setDate()：<span></span>设置 Date 对象中月的某一天 (1 ~ 31)。 </p> 
+		<p>setMonth()：<span></span>设置 Date 对象中月份 (0 ~ 11)。 </p> 
+		<p>setFullYear()：<span></span>设置 Date 对象中的年份（四位数字）。  </p> 
+		<p>setHours()：<span></span>设置 Date 对象中的小时 (0 ~ 23)。  </p> 
+		<p>setMinutes()：<span></span>设置 Date 对象中的分钟 (0 ~ 59)。 </p>  
+		<p>setSeconds()：<span></span>设置 Date 对象中的秒钟 (0 ~ 59)。 </p>  
+		<p>setMilliseconds()：<span></span>设置 Date 对象中的毫秒 (0 ~ 999)。 </p>  
+		<p>setTime()：<span></span>以毫秒设置 Date 对象。 </p> 
+		<p>setUTCDate()：<span></span>根据世界时设置Date对象月份的一天 (1 ~ 31)。 </p>  
+		<p>setUTCMonth()：<span></span>根据世界时设置Date对象的月份 (0 ~ 11)。  </p> 
+		<p>setUTCFullYear()：<span></span>根据世界时设置 Date 对象的年份（四位数字）。 </p> 
+		<p>setUTCHours()：<span></span>根据世界时设置 Date 对象的小时 (0 ~ 23)。 </p> 
+		<p>setUTCMinutes()：<span></span>根据世界时设置 Date 对象的分钟 (0 ~ 59)。  </p> 
+		<p>setUTCSeconds()：<span></span>根据世界时设置 Date 对象的秒钟 (0 ~ 59)。 </p>  
+		<p>setUTCMilliseconds()：<span></span>根据世界时设置 Date 对象的毫秒 (0 ~ 999)。 </p> 
+
+		<p>延时器：
+		语法：setTimeout<p>
+		<p>定时器：
+		语法：setInterval<p>   
+	    
+	    
+	    
+	    
+	    
+	    <h1>BOM基于浏览器</h1>
+	    
+	   <h2> 一、window属性</h2>
+	    
+	    <p>self：		<span></span>self代表自己，相当于window。 </p> 
+	    <p>parent：		<span></span>返回父级窗口 </p> 
+	    <p>top：		<span></span>返回顶层窗口， 和parent作用一样 </p> 
+	    <p>opener：		<span></span>窗口开启者 </p> 
+	    <p>status：		<span></span>设置窗口状态栏。（IE） </p> 
+	    
+	    
+	    <h2>二、window方法</h2>
+	    
+	    <p>1、window.open（url，name，feature，replace）； </p> 
+	    <p>url，<span></span>要显示文档的url </p> 
+	    <p>name，<span></span>可选字符串，有数字、字母和下划线组成，该字符声明了新窗口的名称。 </p> 
+	    <p>feature，<span></span>自行扩展，replace自行扩展 </p> 
+	    <p>2、close 					<span></span>	关闭浏览器。 </p> 
+	    <p>3、alert 					<span></span>	弹出窗 </p> 
+	    <p>4、confirm（对话框提示的文字） 	<span></span>该方法有返回值，点击确定返回true，点击返回false。 </p> 
+	    <p>5、prompt（提示信息）		<span></span>	输入框。点确定返回字符串，点击取消返回null。 </p> 
+	    
+	    
+	    
+	    
+	    <h2>三、history对象</h2>
+	   <h2> 1、history属性 </h2> 
+	    
+	   <p> length 				<span></span>	返回浏览器历史记录的数量 </p> 
+	    
+	   <h2> 2、history方法 </h2> 
+	    
+	   <p> back（）			<span></span>		后退，加载前一个url。 </p> 
+	   <p> forward（） 		<span></span>		前进 </p> 
+	   <p> go（number） 		<span></span>	如果参数是正数，那么就是前进相应的数目，如果是负数那么反之，如果是0那么就是刷新  。</p>
+	    
+	    
+	    
+	    <h2>四、location对象</h2>
+	  <p>  包含有当前url的相关信息，而histor对象不能具体反映url相关信息。 </p> 
+	    
+	   <h2> 1、location的属性</h2>
+	    
+	  <p>  href 			<span></span>		市值返回完整的url，可以为相对路径，也可以为绝对路径。 </p> 
+	   <p> search 		<span></span>			返回url？后面的查询部分。 </p> 
+	   <p> hash 		<span></span>			是一个可读可写的字符串，该字符串是URL的锚部分（从#号开始的部分） </p> 
+	    
+	   <h2> 2、location方法</h2>
+	    
+	    <p>assign（url） 	<span></span>		加载新的文档。 </p> 
+	   <p> reload（boolean）	<span></span>	重新加载文档，当参数是true，任何时候都会重新加载，false的时候，只有在文档发生改变的时候才会加载，否则直接读取内存当中的， </p> 
+	   <p> replace（url） 	<span></span>		用心的文档代替当前的文档，但不会在History对象中生成一个新的记录。当使用该方法时，新的URL将覆盖History对象中的当前记录。 </p> 
+	   
+	   
+	   
+	   
+	   <h2>五、navigator对象</h2>
+	   
+	   <p>appName 			<span></span>	浏览器的名称 </p> 
+	   <p>appVersion  		<span></span>	浏览器的版本。 </p> 
+	   <p>platform 			<span></span>操作系统。 </p> 
+	<p>❤❤ userAgent 		<span></span>	用户代理信息，通过该属性可获取浏览器及操作系统信息。 </p> 
+	    
+	    
+	    
+	    <h2>window 事件</h2>
+	    <p>onload<span></span>加载时间网页加载完毕后执行</p>
+	    <p>onscroll   <span></span> 滚动事件</p>
+	    <p>onresize   <span></span> 窗口缩放事件</p>
+	    	<p>获取；浏览器视窗的宽度/高度</p>
+	    <p>doucment.documentElement.clienWidth；</p>
+	    <p>doucment.documentElement.clienHeight；</p>
+	    	<p>获取浏览器滚动条隐藏的宽度/高度</p>
+	   <p> document.documentElement.scrollLeft || document.body.scrollLeft;</p>
+	    <p>document.documentElement.scrollTop  || documen.body.scrollTop;</p>
+	    
+	    
+	    
+	   <h2> DOM的概念和作用</h2>
+	    
+	   <p> DOM：Document Object Model document对象是DOM核心对象</p>
+	    <p>作用：对html中的内容，属性，样式进行操作。</p>
+	    <p>节点树中节点之间的关系：父子。兄弟。。</p>
+	    
+	    
+	    
+	    <h2>DOM 常用属性</h2>
+	    
+	    <p>title： <span></span> 返回或者设置当前的文档的标题</p>
+	    <p>all：    <span></span> 返回所有元素的集合，有兼容问题，不适用于火狐</p>
+	    <p>forms   <span></span>返回对文档中所有form对象的引用</p>
+	    
+	    <p>通过集合来访问相应的对象：</p>
+	    
+	  <p>1、通过下标的形式 。</p>
+	  <p>2、通过name形式。</p>
+	  
+	  
+	  	<h2>DOM查询方法</h2>
+	  	
+	  	<p>1、getElemntById（id）  <span></span> 返回拥有指定id 的第一个对象的引用。</p>
+	  	<p>2、getElementsByTagName（tagName）  <span></span>返回有指定表签名的对象集合。</p>
+	  	<p>上面两个方法都有兼容性问题。</p>
+	  	<p>3、getElementsByName（name）：<span></span>返回带有指定name指定名称的对象 的集合，有兼容问题。</p>
+	  	<p>在IE9及其以下，如果对象的标准属性包含有（比方说input，在input中name是input的默认属性，所以可以正常使用，但是在div中name并不是div的莫默认属性，所以不能正常显示)，那么可以正确的使用，否则不可以使用，在火狐中，该方法可以适用于任何情况。、</p>
+	  	<p>结论：getElementsByName(name)主要适用于表单。</p>
+	  	
+	  	<p>4、write   <span></span>输出内容带页面</p>
+	  	<p>5、getElementsByClassName（）：  <span></span>返回带有指定className指定名称的对象的集合。有兼容问题，适用于火狐浏览器，在IE浏览器中不可用（IE8及以下不可用）</p>
+	  	<br />
+	  	<br />
+	  	<p style="color: blue;">返回带有指定className指定名称的兼容写法</p>
+	  		<p style="color: blue;">function byClassName (sClass) {</p>
+	  			<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(document.getElementByClassName){</p>
+	  				<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;var aClass = document.getElementsByClasssName('class1');</p>
+	  			<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else{</p>
+	  				<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var aAll = document.getElementsByTagName(*);</p>
+	  				<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var aClass = [];</p>
+	  				<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(var i = 0;i < aAll.length;i++){</p>
+	  					<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(aAll[i].className === 'class1'){</p>
+	  						<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aClass.push(aAll[i]);</p>
+	  					<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+	  				<p style="color: blue;">&nbsp;&nbsp;}</p>
+	  			<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+	  			<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return aClass;</p>
+	  		<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+	  	<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(byClassName('class1'));</p>
+	  	<br />
+	  	<br />
+	  	<p>练习：封装获取 className值的DOM节点的兼容性函数。</p>
+	  	
+	  	
+	  	
+	  	<h2>操作内容</h2>
+	  	<p>1、innerHTML   <span></span>用来设置获取对象起始和结束标签内（例如div框架，它只会获取div里面的内容，而不会获取div）的内容（识别html标签）</p>
+	  	<p>2、innerText   <span></span>用来设置或获取对象起始和结束标签内的内容（只是获取文字内容）（适用于IE，最新版火狐已支持）</p>
+	  	<p>3、textContent   <span></span>用来设置或获取对象起始和结束标签内的内容（只是获取文字内容）适用于火狐 ，IE8及其以下不支持</p>
+	  	<p>4、outerHTML    <span></span>用来设置或获取包括本对象在内的起始和结束标签内（例如div框架，不仅会获取div里面的内容，也会获取div自身的内容）的内容（识别html标签）</p>
+	  	<p>5、outerText    <span></span>用设置或获取包括本对象在内的起始和结束标签内的内容（只是获取文字内容）（火狐不支持）</p>
+	  	
+	  	
+	  	<h2>操作属性</h2>
+	  	
+	  	<p>1、直接操作
+	  		<p>对象.属性。  <span></span>   获取属性。某些属性有兼容问题，例如name（如果不是标签特有的属性，在chrome/firfox访问不到，在IE8及其以下浏览器能获取的到）</p>
+	  		<p>对象.属性=值    <span></span>设置、添加属性（属性值）</p>
+	  		
+	  	<p>2、通过方法</p>
+	  		<p>getAttribute（“属性”）    <span></span>获取给定的属性的值</p>
+	  		<p>setAttribute （‘属性’，‘值’）   <span></span>设置或是添加属性</p>
+	  		<p>removeAttribute    <span></span>删除属性。</p>
+	  		
+	  	<h2>操作样式</h2>
+	  	<p>1、行内样式</p>
+	  			<p>对象.style.属性    <span></span>  获取样式属性</p>
+	  			<p>对象.style.属性 = 值      <span></span>设置、添加样式属性</p>
+	  			<p>注意。遇到属性是-链接的，要将-去掉，后面单词的首字母大写。</p>
+	  	<p>2、行内样式和css层叠样式通用的方式</p>
+	  			<p>对象.currentStyle.属性         	<span></span>IE用来获得实际的样式属性</p>
+	  			<p>getComputedStyle（（对象、null）.属性）       <span></span> 火狐   用来获得实际的样式属性。</p>
+	  			<p>注意：只能获取不能设置</p>
+	  			<br />
+	  			<br />
+	  			
+	  			
+	  		<div>
+	  			<p style="color: blue;">❤❤IE和火狐兼容模式写法：</p>
+	  			<p style="color: blue;">function getStyle (obj,sAttr) {</p>
+	  				<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;if(obj.surrentStyle){</p>
+	  					<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return obj.surrentStyle[sAttr];</p>
+	  				<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;}else{</p>
+	  					<p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;return getcomputedStyle(obj/null)[sAttr];</p>
+	  				<p style="color: blue;">&nbsp;&nbsp;}</p>
+	  			<p style="color: blue;">}</p>
+	  		</div>
+	  			
+	  	
+	  	<h2>DOM增删改</h2>
+	  <p>	一、创建节点（注释和文档节点一般不需要创建）</p>
+	  	<h2>1、创建元素节点</h2>
+	  	<p>	document.createElement（‘元素标签名’）；</p>
+	  	<h2>2、创建属性节点</h2>
+	  		<p>var oAttr = document.createAttribute（‘属性名’）；</p>
+	  		<p>oAttr.value = “attr-name”；</p>
+	  		<p>oDiv.setAttributeNode（oAttr）</p>
+	  		<p>对象.属性 = 属性值；（常用）</p>
+	  	<h2>3、创建文本节点</h2>
+	  		<p>对象.innerHTML = “”；</p>
+	  		<p>var oText = document.creatTextNode（‘文本’）//文本中的HTML标签实体化</p>
+	  		<p>oDiv.appendChild（oText）；</p>
+	  		
+	  	<h2>二：追加到页面中</h2>
+	  		<p>父元素.appendChild（newNode）   <span></span>//插入到父对象最后。</p>
+	  		<p>父对象.insertBefore（newNode，existssNode） <span></span> //插到什么对象之前。</p>
+	  	<h2>三、修改（替换）节点</h2>
+	  		<p>父对象.replaceChild（newNode，existsNode）；     <span></span> //前面的替换后面的</p>
+	  	<h2>四、删除节点</h2>
+	  		<p>父对象.removeChild（oldNode）；</p>
+	  		<p>如果确定要删除节点，最好也清空内存   对象 = null；</p>
+	  	<h2>五、表格操作</h2>
+	  		<p>table.tBodies[0].cells[0].innerHTML;</p>
+	  		<p>var oNewRow = table.insertRow ('行位置');</p>
+	  		<p>oNewRow.insertCell('列位置');</p>
+	  		
+	  		
+	  		
+	  		
+	  		<h1>1事件驱动</h1>
+	  		<p>引言</p>
+	  		<p>1、事件 </p>
+	  		<p>所谓事件就是js侦测到的用户的操作或是页面的一些行为（怎么发生的）。 </p>
+	  		<p>2、事件源 </p>
+	  		<p>印发事件的元素。（发生在谁的身上） </p>
+	  		<p>3、事件处理程序 </p>
+	  		<p>对事件处理的程序或是函数（发生了什么事） </p>
+	  		<p>4、事件对象 </p>
+	  		<p>当事件发生的时候，具体发生了哪些信息（当按键盘的时候按得哪个键或者鼠标光标在页面哪个位置等等。） </p>
+	  		<h1>2事件分类</h1>
+	  		<h2>1、鼠标事件</h2>
+	  		<p>onclick  	<span></span>			点击鼠标 </p>
+	  		<p>ondblclick 		<span></span>		双击鼠标 </p>
+	  		<p>onmousedown 		<span></span>	鼠标按下 </p>
+	  		<p>onmouseup 			<span></span>	鼠标抬起 </p>
+	  		<p>onmousemove 			<span></span>鼠标移动 </p>
+	  		<p>onmouseover 			<span></span>鼠标放上去 </p>
+	  		<p>onmouseout 			<span></span>	鼠标离开 </p>
+	  		<p>onmouseenter 		<span></span>	鼠标进入 </p>
+	  		<p>onmouseleave 		<span></span>	鼠标离开 </p>
+	  		<h2>2、键盘事件</h2>
+	  		<p>onkeyup 				<span></span>键盘抬起 </p>
+	  		<p>onkeydown 				<span></span>键盘按下 </p>
+	  		<p>onkeypress 			<span></span>	键盘按下或按住 </p>
+	  		<h2>3、表单事件</h2>
+	  		<p>onsubmit 				<span></span>提交 </p>
+	  		<p>onblur 					<span></span>获得焦点 </p>
+	  		<p>onfocus 				<span></span>失去焦点 </p>
+	  		<p>onchange 				<span></span>改变文本区域的内容 </p>
+	  		<h2>4、页面的事件</h2>
+	  		<p>onload 					<span></span>当页面加载完成 </p>
+	  		<p>onbeforeunload 		<span></span>	当页面卸载完成之前 </p>
+	  		
+	  	<h1>3、绑定事件</h1>
+	  		<h2>一、绑定一个事件处理程序</h2>
+	  			<p>1、在脚本中绑定。 </p>
+	  			<p>2、直接在HTML元素中绑定 </p>。
+	  		<h2>二、绑定多个事件处理程序：</h2>
+	  			<p>1、自己写的。 </p>
+	  			<p>2、IE：（多个函数执行顺序：IE9/10按照绑定的顺序执行，IE7 /8 顺序相反） </p>
+	  			<p>对象.attachEvent（“事件（on）”，处理程序） 添加 </p>
+	  			<p>对象.detachEvent（“事件（on）”，处理程序） 删除 </p>
+	  			
+	  			<p>火狐：（多个函数执行顺序：按照绑定的顺序执行） </p>
+	  			
+	  			<p>对象.addEventListener（‘事件’（不加on），‘处理程序’，布尔值）  添加 </p>
+	  			<p>对象.removeEventListener（‘事件’（不加on），‘处理程序’，布尔值）删除 </p>
+	  		<h2>三：事件对象</h2>
+	  			<p>用来记录一些事件发生时的相关信息的对象。 </p>
+	  				<p>1、只有当时间发生的时候才产生，只能在处理函数内部访问 </p>
+	  				<p>2、处理函数运行结束后自动销毁。 </p>
+	  			<p>如何获取事件对象：、 </p>
+	  			 	<p>IE：window.event </p>
+	  			 	<p>火狐：对象.on事件 = function（ev）{} </p>
+	  		
+	  		<h2>四、关于鼠标事件对象属性。</h2>
+	  			<h2>相当于浏览器位置的： </h2>
+	  				<p>clientX  			<span></span>	当鼠标事件发生的时候，鼠标相对于浏览器X轴的位置。 </p>
+	  				<p>clientY 				<span></span>当鼠标事件发生的时候，鼠标相对于浏览器Y轴的位置。 </p>
+	  			<h2>相对于文档位置的：</h2>
+	  				<p>pageX 					<span></span>当鼠标事件发生的时候，鼠标相对于文档的X轴的位置（IE7   8 无） </p>
+	  				<p>pageY 					<span></span>当鼠标事件发生的时候，鼠标相对于文档的Y轴的位置（IE7   8 无） </p>
+	  			<h2>相对于屏幕位置 </h2>
+	  				<p>screenX 				<span></span>当鼠标事件发生的时候，鼠标相对于屏幕X轴的位置。 </p>
+	  				<p>screenY 				<span></span>当鼠标事件发生的时候，鼠标相对于屏幕Y轴的位置。 </p>
+	  			<h2>相对于事件源的位置</h2>
+	  				<p>offsetX 				<span></span>当鼠标事件发生的时候，鼠标相对于事件源X轴的位置。 </p>
+	  				<p>offsetY 				<span></span>当鼠标事件发生的时候，鼠标相对于事件源的Y轴的位置。 </p>
+	  				
+	  				
+	  			<h1>五、关于键盘事件对象的属性</h1>
+	  				<p>keyCode：获得键盘码。空格：32  回车：13  左上右下 37 38 39 40which属性有兼容问题。</p>
+	  				<p>ctrlKey判断ctrl是否按下，按下时true反之false 布尔值。还有shiftKey  altKey</p>
+	  				<p>type：用来检测事件的类型。</p>
+	  				<p>button：0代表鼠标按下了左键       、1代表按下了滚轮  2、代表按下了右键。不过老本本的IE并没有遵循W3C的规范，他的button属性含义如下：1鼠标左键。2、鼠标右键、3、左右同时按 4、滚轮 5 、左键加滚轮   6、右键加滚轮 7 、三个同时。目前IE11无兼容问题。</p>
+	  				
+	  			<h1>六、目标时间源对象</h1>
+	  			<p>IE：时间对象.srcElement</p>
+	  			<p>火狐：时间对象.target</p>
+	</body>
+</html>

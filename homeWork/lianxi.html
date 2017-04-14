@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组方法练习，字符串方法练习</title>
+		<script type="text/javascript">
+			
+			
+		/*******************************arr.push(数组元素......) 参数之间要用逗号隔开。**************/
+		var supper = [1,5,9,8,3,7];
+		supper.push('混世大魔王');
+		console.log(supper);
+		
+		
+		/*******************************arr.unshift(数组元素.....)。**************/
+		var supper1 = [1,5,9,8,3,7];
+		supper1.unshift('霹雳娇娃');
+		console.log(supper1);
+		
+		
+		/*******************************arr.pop()。**************/
+		var supper2 = [1,5,9,8,3,7];
+		supper2.pop();
+		console.log(supper2);
+		
+		
+		
+		/*******************************arr.shift()。**************/
+		var supper3 = [1,5,9,8,3,7];
+		supper3.shift();
+		console.log(supper3);
+		
+		
+		
+		/*******************************万能的添加删除函数。**************/
+		var supper4 = [1,5,9,8,3,7];
+		supper4.splice(2,0,'小金刚');
+		console.log(supper4);
+		
+		
+		
+		
+		/*******************************str.split(分隔符)。**************/
+		var supper5 = 'Hello World';
+		console.log(supper5.split(' '));
+		
+		
+		/*******************************arr.join([分隔符])**************/
+		var supper6 = ['张','大','炮'];
+		supper6.join(' ');
+		console.log(supper6);
+		
+		
+		/************************************arr.slice()数组的分割。****************************/
+		var supper7 = [1,5,9,8,3,7];
+		
+		var old = supper7.slice(2);
+		console.log(old);
+		
+		
+		/************************************arr.concat()合并数组****************************/
+		var supper8 = [1,5,9,8,3,7],
+			supper9 = ['霹雳小淫娃'];
+			
+		
+		console.log(supper8.concat(supper9));
+		
+		
+		
+		/************************************arr.reverse()反转数组****************************/
+		var supper10 = [1,5,9,8,3,7];
+			supper10.reverse();
+			
+		console.log(supper10);
+		
+		
+		
+		/************************************arr.sort()对数组进行排序****************************/
+		var supper11 = [1,5,9,8,3,7];
+			supper11.sort();
+			
+		console.log(supper11);
+		
+		
+		/************************************bind改变this指向****************************/
+		/*var name = '蛋蛋蛋';
+		var one = {
+			name:'嘿嘿嘿'
+		};
+		
+		var two = function () {
+			console.log(this.name);
+		}.bind(one);
+		
+		two();*/
+		
+		
+		
+		var a = '混世小魔王';
+		var b = {
+			name:'像炊烟袅袅几许，棠梨煎雪又落雨'
+		};
+		
+		var c = function () {
+			console.log(this.name);
+		}.bind(b);
+		
+		c();
+		
+		
+		
+		
+		/************************************forEach方法：遍历数组****************************/
+		var a = [1,3,8];
+		
+		a.forEach(function(v,k,arr){
+			arr[k] = v * 10;
+		});
+		console.log(a);
+		
+		
+		
+		
+		/************************************map方法：将数组映射成新数组。回调函数需要有返回值****************************/
+		
+		
+		var big = a.map(function(v,k,arr){
+			return v * 2
+		});
+		
+		console.log(big);
+		
+		
+		
+		/************************************filter方法：指数组过滤后，返回过滤后的新数组。****************************/
+		var one = a.filter(function(v,k,arr){
+			return v % 2 === 1
+		});
+		
+		console.log(one);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

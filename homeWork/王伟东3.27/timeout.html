@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>延迟框</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				width: 300px;
+				height: 600px;
+				background-color: aqua;
+			}
+			#box2{
+				width: 300px;
+				position: absolute;
+				left: 310px;
+				top: 0;
+				height: 200px;
+				background-color: aqua;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript" src="common.js"></script>
+		<script type="text/javascript">
+			window.onload =  function () {
+				var oBox = $('box1'),
+					oBox2 = $('box2'),
+					oTime1 = null;
+					
+				oBox.onmouseover = function () {
+					clearTimeout(oTime1);
+					oBox2.style.display = 'block';
+				}
+				
+				oBox.onmouseout = function () {
+					var oTime = setTimeout(function(){
+						oBox2.style.display = 'none';
+					},200)
+					
+				oBox2.onmouseover = function (){
+					clearTimeout(oTime);
+					oBox2.style.display = 'block';
+					}
+				
+				oBox2.onmouseout = function (){
+					 oTime1 = setTimeout(function(){
+						oBox2.style.display = 'none';
+						},88)
+					
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+	</body>
+</html>

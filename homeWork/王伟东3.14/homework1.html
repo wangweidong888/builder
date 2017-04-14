@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>成绩等级查询</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding: 0;
+			}
+			div{
+				width:800px;
+				height: 600px;
+				margin:80px auto;
+				background: url(img/1489192921735.jpg) center center;
+				overflow: hidden;
+				background-size: cover;
+			}
+			p{
+				text-shadow:3px 4px 4px green;
+				font-weight: 500; 
+				font-size: 14px;
+				font-family: '微软雅黑';
+				text-align: center;
+				margin-bottom: 50px;
+				font-weight: 900;
+				margin-top: 40px;
+				color: blue;
+			}
+			input{
+				display: block;
+				margin:auto;
+				width:200px;
+				height: 30px;
+				margin-bottom: 50px;
+				opacity: .5;
+				border:0;
+				border-radius: 6px;
+			}
+			#btn{
+				border: 0;
+				display: block;
+				width: 80px;
+				height: 40px;
+				cursor: pointer;
+				margin:auto;
+				background-color:#FF7F00;
+				color: #fff;
+				border-radius: 6px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				//获取变量
+				var	
+					oGrade = document.getElementById('grade'),
+					oBtn   = document.getElementById('btn');
+				//添加点击事件
+				oBtn.onclick = function () {
+					var sGrade = Number(oGrade.value);
+
+					switch(sGrade) {
+
+						case 1:
+						case 3:
+						case 5:
+						case 7:
+						case 8:
+						case 10:
+						case 12:
+							alert('31天');
+							break;
+
+						case 2:
+							alert('28天');
+							break;
+
+						case 4:
+						case 6:
+						case 11:
+							alert('30天');
+							break;
+
+					default:
+							alert('非法日期,范围1~12');
+							break;
+					}
+				}
+			};
+		</script>
+	</head>
+		<body>
+			<div>
+				<p>请输入月份</p>
+				<input type="text" id="grade">
+				<button id="btn">查询天数</button>
+			</div>
+		</body>
+	</html>

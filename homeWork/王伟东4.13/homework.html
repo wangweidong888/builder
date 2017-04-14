@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title></title>
+	<script type="text/javascript">
+	window.onload = function(){
+		/*class Animal {
+				say(){
+					console.log('我会说话');
+				}
+			}
+
+		class preson extends Animal{
+				run(){
+					console.log('我会跑');
+				}
+			}
+			//实例化对象
+			var oXiaoLiu = new preson();
+			//调用run方法
+			oXiaoLiu.run();*/
+
+
+
+		//console.log(typeof preson);
+
+
+		function Person(name,age){
+			this.name 	= name;
+			this.age 	= age;
+		}
+
+		Person.prototype.introduce = function(){
+			console.log('我叫'+ this.name + '，今年' + this.age);
+		};
+		//Person为函数
+		console.dir(Person);
+		//报错，oXiaoLiu找不到。
+		//oXiaoLiu.introduce();
+
+		//实例化对象
+		var oXiaoming1 = new Person('小刘1',66),
+			oXiaoming2 = new Person('小刘2',86)
+
+		console.log(oXiaoming1);
+
+		oXiaoming1.introduce();
+		oXiaoming2.introduce();
+
+		console.log(oXiaoming1.introduce === oXiaoming2.introduce);
+	}	
+	</script>
+</head>
+<body>
+
+</body>
+</html>

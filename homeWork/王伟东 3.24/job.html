@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>今日所学练习</title>
+		<script type="text/javascript">
+			//DOM两个获取样式和clasName的兼容写法
+			
+			//样式兼容写法
+			/*function getStyle(obj,sAtter){
+				if(boj.sureentStyle){
+					return obj.succertStyle[sAtter];
+				}else{
+					return document.getComputedStyle(boj,null)[sAtter];
+				}
+			}*/
+			
+
+			/*function getStyle(obj,sAtter){
+				if(obj.sureentStyle){
+					return obj.surrentStyle[sAtter];
+				}else{
+					return document.getComputedStyle(obj,null)[sAtter];
+				}
+			}*/
+			
+			
+			//classname兼容写法
+			/*function Nam (aClass) {
+				if(document.getElementsByClassName){
+					var aClass = document.getElementsByClassName('abc')
+				}else{
+					var one = document.getElementsByTagName('*');
+					var aClass = [];
+					for(var i = 0;i < one.length;i++){
+						if(one[i].className === 'abc'){
+							aClass.push(one[i]);
+						}
+					}
+				}return  aClass;
+			}
+			
+			console.log();*/
+			
+			function  $(id){
+				return document.getElementById(id);
+			}
+			
+			//window.onload = function () {
+				
+			
+			//创建元素节点
+			/*var h = document.createElement('h1');
+			h.innerHTML = '我是h1';
+			
+			
+			$('one').appendChild(h);*/
+			//创建属性
+			/*var Sx = document.createAttribute('sex');
+			Sx.value = 'boy';
+			h.setAttributeNode(Sx);*/
+			
+			//表格操作
+			/*var oTab = $('TAB');
+			
+			var oTr  = oTab.insertRow(2);
+			var oTd  = oTr.insertCell(0);
+			oTd.innerHTML = '张大炮';
+			var oTd  = oTr.insertCell(1);
+			oTd.innerHTML = '死内科';
+			var oTd  = oTr.insertCell(2);
+			oTd.innerHTML = '张益达';
+			}*/
+			window.onload = function () {
+				
+				var oDad = $('dad'),
+					oOne = $('one'),
+					oBox = $('box');
+				//var oChild = oDad.childNodes;
+				//var oChild = oDad.children;
+				//var oChild = oDad.firstElementChild;
+				//var oChild = oDad.lastElementChild;
+				//var oChild = oDad.lastChild;
+				//var oChild1 = oChild.nextElementSibling;
+				
+				//节点其他属性
+				//console.log(oDad.attributes);
+				//console.log(oDad.tagName);
+				//console.log(oDad.id); 
+				//console.log(oDad.title);
+				//console.log(oDad.className);
+				
+				//文档碎片
+				/*for(var i = 0;i <= 100;i++){
+					var oLi = document.createElement('li')
+					oLi.innerHTML = '我是第'+ i +'个张大炮';
+					oDad.appendChild(oLi);
+				}*/
+				//console.log(oBox.offsetParent);
+				//console.log(oBox.offsetLeft);
+				//var ofiram = document.firam;
+				//console.log(ofiram.account);
+				//console.log(ofiram.elements[0]);
+				//console.log(ofiram.elements['account']);
+				//ofiram.elements['account'].value  = '账号';
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<!--<div id="one"></div>
+		<div id="two"></div>
+		<div id="three"></div>
+		<table id="TAB">
+			<tr>
+				<td>1</td>
+				<td>a</td>
+				<td>一</td>
+			</tr>
+			
+			<tr>
+				<td>2</td>
+				<td>b</td>
+				<td>二</td>
+			</tr>
+		</table>-->
+		
+		<!--<div id="dad" style="position: relative;border: 1px solid #000; height: 400px;">
+			<div id="box" style="position: absolute;margin-left: 40px;width:100px;height: 100px;
+				background-color: red;"></div>-->
+			<!--<li>张大炮</li>
+			<li>张益达</li>
+			<li>李佳航</li>
+			<li>排行老四</li>
+			<li>排行老五</li>
+			<li>排行老六</li>
+			<li>排行老七</li>-->
+			<!--<form action="javascript:;" id="one" name="firam">
+				账号：<input type="text" value="请输入账号" name="account"><br/>
+				密码：<input type="password" name="paaword">
+			</form>-->
+		</div>
+	</body>
+</html>

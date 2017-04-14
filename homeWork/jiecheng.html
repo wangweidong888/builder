@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: url(img/1489192921735.jpg) no-repeat center center;
+				height: 600px;
+				
+			}
+			form{
+				width: 300px;
+				height: 200px;
+				background: rgba(200,84,172,.8);
+				position: absolute;
+				right: 240px;
+				top: 20px;
+				border-radius: 20px;
+			}
+			input{
+				width: 250px;
+				display: block;
+				margin: auto;
+				height: 30px;
+				border-radius: 8px;
+				border: 0;
+				margin-top: 40px;
+				background: rgba(150,84,172,.8);
+			}
+			button{
+				width: 100px;
+				height: 40px;
+				border: 0;
+				border-radius: 8px;
+				display: block;
+				margin: auto;
+				margin-top: 40px;
+				color: #fff;
+				background: rgba(150,84,172,.8);
+				cursor: pointer;
+				font-weight: 800;
+				font-family: "微软雅黑";
+			}
+		</style>
+		
+		
+		
+		<script type="text/javascript">
+		//页面加载获取变量
+			window.onload = function () {
+				var 
+					oA = document.getElementById('a'),
+					oBtn = document.getElementById('btn');
+		//添加点击事件，触发函数jc，打印出jc（iA）的值
+		
+			oBtn.onclick = function () {
+				var 
+					iA = Number(oA.value);
+					jc(iA);
+					
+				
+			//函数阶乘计算方法
+				
+			function jc (n) {
+				var num = 1;
+				for(var n = 1;n <= iA;n++){
+				num *= n;
+						}alert(num);
+					}
+				}
+			}
+	</script>
+	</head>
+	<body>
+		<form action="javascript:;">
+			<input type="text" id="a" placeholder="请输入数字1~170"/>
+			<button id="btn">计算阶乘</button>
+		</form>
+	</body>
+</html>

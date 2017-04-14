@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>九宫格</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				display: block;
+				width: 180px;
+				height: 180px;
+				position: absolute;
+			}
+			#box{
+				width: 600px;
+				height: 600px;
+				margin:25px auto;
+				background:rgba(249,240,220,.7);
+			}
+			.z{
+				z-index: 999;
+			}
+		</style>
+		<script type="text/javascript" src="common.js"></script>
+		<script type="text/javascript">
+			window.onload = function　(){
+				var 
+					oBox 	= $('box'),
+					oImg 	= oBox.getElementsByTagName('img'),
+					oBoxL 	= oBox.offsetLeft,
+					oBoxT	= oBox.offsetTop;
+					
+				for (var i  = 0;i < oImg.length;i++) {
+					
+					var	
+						iCol = i % 3,
+						iRow = Math.floor(i / 3);
+					oImg[i].style.left = oBoxL+iCol*195 + 15 +'px';
+					oImg[i].style.top = oBoxT+iRow*195 + 15 +'px';
+				
+				
+				oImg[i].index = i;
+				oImg[i].show  = i;
+				oImg[i].onmousedown = function (ev) {
+					var ev = ev || window.event;
+					var oThat = this;
+					if(this.setCapture){
+						this.setCapture();
+					}
+					
+					var iX = ev.clientX - this.offsetLeft,
+						iY = ev.clientY - this.offsetTop;
+						
+					this.className = 'z';
+					
+				document.onmousemove = function (ev){
+					var ev = ev || window.event;
+					var iL = ev.clientX - iX,
+						iT = ev.clientY - iY;
+						
+					oThat.style.left = iL + 'px';
+					oThat.style.top = iT + 'px';
+					
+					//开始位置交换
+					for(var i = 0; i < oImg.length;i++){
+						if(
+								i !== oThat.index
+								&& 
+								oThat.offsetLeft + oThat.offsetWidth > oImg[i].offsetLeft + oImg[i].offsetWidth / 2
+								&&
+								oThat.offsetTop + oThat.offsetHeight > oImg[i].offsetTop + oImg[i].offsetHeight / 2
+								&&
+								oImg[i].offsetLeft + oImg[i].offsetWidth / 2>= oThat.offsetLeft
+								&&
+								oImg[i].offsetTop + oImg[i].offsetHeight / 2>= oThat.offsetTop
+						){
+							//计算交换后的位置
+							var iIndex = oThat.show;
+							var 
+								iCol = iIndex % 3,
+								iRow = Math.floor(iIndex / 3);
+								
+							oImg[i].style.left = oBoxL+iCol*195 + 15 +'px';
+							oImg[i].style.top = oBoxT+iRow*195 + 15 +'px';
+							
+							//交换索引
+								var iTemp = oImg[i].show;
+								oImg[i].show = oThat.show;
+								oThat.show = iTemp;
+									}
+								}
+							}
+					document.onmouseup = function () {
+						
+						document.onmousemove = null;
+						document.onmouseup = null;
+						
+						if(oImg[oThat.index].releaseCapture){
+							oImg[oThat.index].releaseCapture();
+						}
+						oThat.className = '';
+						
+						var iIndex = oThat.show;
+						var 
+							iCol = iIndex % 3,
+							iRow = Math.floor(iIndex / 3);	
+							oThat.style.left = oBoxL+iCol * 195 + 15 +'px';
+							oThat.style.top = oBoxT+iRow * 195 + 15 +'px';
+						}
+					return false;
+					}
+				}	
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<img src="images/1.jpeg"/>
+			<img src="images/2.jpeg"/>
+			<img src="images/3.jpeg"/>
+			<img src="images/4.jpeg"/>
+			<img src="images/5.jpeg"/>
+			<img src="images/6.jpeg"/>
+			<img src="images/7.jpeg"/>
+			<img src="images/8.jpeg"/>
+			<img src="images/9.jpeg"/>
+		</div>>
+	</body>
+</html>

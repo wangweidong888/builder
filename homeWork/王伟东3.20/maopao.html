@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>排序算法</title>
+		<script type="text/javascript">
+			var num = [15,57,36,112,39,94,66,88];
+			/*******************************冒泡法*********************************/
+			/*function Bunling (arr) {
+				//计算排序分为几步
+				for(var i = 1;i < arr.length;i++){
+					//计算步数中的次数
+					for(var j = 0;j < arr.length-i;j++){
+						if(arr[j] > arr[j+1]){
+							var iTemp = arr[j];
+								arr[j] = arr[j+1];
+								arr[j+1] = iTemp; 
+						}
+					}
+				}return arr;
+				
+			}
+			console.log(Bunling(num));*/
+			
+			
+			/*******************************插入法*********************************/
+			
+			/*function Insert (arr) {
+			 	//计算出应该分为几步
+				for(var i  = 1;i < arr.length;i++){
+					//让后一个跟前一个比较
+					for(var j = i;j > 0;j--){
+						//如果前一个小于后一个
+						if(arr[j] < arr[j-1]){
+							//调换顺序
+							var iTemp = arr[j];
+								arr[j] = arr[j-1];
+								arr[j-1] = iTemp;
+						}
+					}
+				}return arr;
+			}
+			console.log(Insert(num));*/
+			
+			
+			/*******************************插入法*********************************/
+			
+			function quickSort(arr){
+				//首先
+				if(arr.length <= 1){
+					return arr;
+				}
+				
+				var
+					iDatum = arr.shift(),
+					aLeft  = [],
+					aRight = [];
+				for(var i = 0;i < arr.length;i++){
+					
+					if(arr[i] < iDatum){
+						aLeft.push(arr[i]);
+					}else{
+						aRight.push(arr[i]);
+					}
+				}
+				
+				return quickSort(aLeft).concat([iDatum],quickSort(aRight));
+			}
+			
+			console.log(quickSort(num))
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

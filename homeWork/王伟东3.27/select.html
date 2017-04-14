@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>仿原生下拉菜单</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			#con{
+				list-style: none;
+				display: block;
+				width: 300px;
+				height: 40px;
+				margin: auto;
+				margin-top: 40px;
+				font-size: 18px;
+				border: 2px solid #ccc;
+			}
+			#box{
+				list-style: none;
+				width: 300px;
+				position: absolute;
+				border: 2px solid #ccc;
+				left: 531px;
+				display: none;
+			}
+			#box li{
+				line-height: 40px;
+				border-bottom: 1px solid #ccc;
+				cursor: pointer;
+			}
+			#box li:nth-of-type(3){
+				border-bottom: 0;
+			}
+		</style>
+		
+		<script type="text/javascript" src="common.js"></script>
+		<script type="text/javascript">
+			window.onload =  function () {
+				var oCon = $('con'),
+					oBox = $('box'),
+					oLi	 = oBox.children;
+					
+				oCon.onfocus = function (){
+					oBox.style.display = 'block';
+				}
+				
+				oCon.onblur = function (){
+					
+					setTimeout(function(){
+						oBox.style.display = 'none';
+					},200)
+					
+				for (var i = 0;i < oLi.length;i++) {
+						oLi[i].onclick = function() {
+							oCon.value = this.innerHTML;
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="con" value="奇迹MU"></input>
+		<ul id="box">
+			<li>剑侠情缘</li>
+			<li>凤舞天骄</li>
+			<li>大话西游</li>
+		</ul>
+	</body>
+</html>

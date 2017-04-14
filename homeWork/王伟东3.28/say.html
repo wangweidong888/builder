@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>聊天框</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			img{
+				display: block;
+			}
+			#box{
+				width: 586px;
+				height: 552px;
+				margin: 20px auto;
+				background: url(img/3.jpeg) no-repeat center center;
+				background-size: cover;
+			}
+			#left{
+				width: 76%;
+				height: 472px;
+				float: left;
+				background-color: rgba(240,244,245,.7);
+				margin-right: 2px;
+				position: relative;
+			}
+			#right{
+				float: left;
+			}
+			#ltop{
+				width: 100%;
+				height: 70%;
+				max-height: 70%;
+				border-bottom: 20px solid rgba(200,204,205,.5);
+				position: absolute;
+				overflow: auto;
+			}
+			#bot{
+				position: absolute;
+				width: 100%;
+				top: 72%;
+			}
+			#list{
+				min-height: 70%;
+			}
+			.ls{
+				list-style: none;
+				line-height: 20px;
+				margin-top: 10px;
+				float: right;
+				clear: both;
+				padding-right: 10px;
+				color: crimson;
+				text-shadow:4px 5px 5px #FF0000;
+			}
+			#con{
+				resize: none;
+				background-color: rgba(240,244,245,.7);
+				border: 0;
+				width: 100%;
+			}
+			button{
+				width: 75px;
+				height: 25px;
+				border: 0;
+				border-radius:4px;
+				background-color:#FF7F50 ;
+			}
+			button:nth-of-type(1){
+				position: absolute;
+				right: 20px;
+			}
+			button:nth-of-type(2){
+				position: absolute;
+				right: 130px;
+			}
+			button:hover{
+				background-color:crimson;
+			}
+		</style>
+		
+		<script type="text/javascript" src="common.js"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+				var oCon  = $('con'),
+					oLt   = $('ltop'),
+					oList = $('list');
+					
+					
+				oCon.onkeydown = function (ev) {
+					var ev = ev || window.event;
+					if(this.value !==''  && ev.ctrlKey === true && ev.keyCode === 13){
+						var nLi = document.createElement('li');
+							nLi.className = 'ls';
+							nLi.innerHTML = this.value;
+							oList.appendChild(nLi);
+							this.value = '';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<div id="top"><img src="img/1.jpg"></div>
+			<div id="left">
+				<div id="ltop">
+					<ul id="list">
+						<li class="ls">Hello</li>
+						<li class="ls">Hi</li>
+						<li class="ls">bye</li>
+					</ul>
+				</div>
+				<div id="bot">
+					<textarea id="con" rows="5"></textarea>
+					<button id="give">发送</button>
+					<button id="close">关闭</button>
+				</div>
+			</div>
+			<div id="right"><img src='img/2.jpg'></div>
+		</div>
+	</body>
+</html>

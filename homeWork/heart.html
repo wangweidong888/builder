@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>29照片墙</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body,html{
+				width: 100%;
+				height: 100%;
+			}
+			img{
+				width: 130px;
+				height: 130px;
+				position: absolute;
+			}
+			.tar{
+				z-index:999;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				var oImg = document.getElementsByTagName('img');
+					oWinW = document.documentElement.clientWidth;
+					oWinH = document.documentElement.clientHeight;
+				
+				for(var i = 0;i < oImg.length;i++) {
+					
+					oImg[i].onmousedown = function (ev) {
+						//兼容
+						var ev = ev || window.event;
+						//让第i个img等于oThat
+						var oThat = this,
+						iX = ev.clientX - oThat.offsetLeft;
+						iY = ev.clientY - oThat.offsetTop;
+						//提升点击元素优先级
+						oThat.className = 'tar';
+						//遮罩层
+						if(oThat.setCapture){
+							oThat.setCapture();
+						}
+						document.onmousemove = function(ev) {
+							var ev = ev || window.event;
+							iL = ev.clientX - iX;
+							iT = ev.clientY - iY;
+							oThat.style.left = iL+'px';
+							oThat.style.top = iT+'px';
+						}
+						document.onmouseup = function(ev) {
+							document.onmousemove = null;
+							document.onmouseup 	 = null;
+							oThat.className = '';
+						if(oThat.releaseCapture){
+							oThat.releaseCapture();
+							}
+						}
+						return false;
+					}
+				}
+			}
+			function $(id){
+				return document.getElementById(id);
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/素材1/1.png"/>
+		<img src="img/素材1/2.png"/>
+		<img src="img/素材1/3.png"/>
+		<img src="img/素材1/4.png"/>
+		<img src="img/素材1/5.jpg"/>
+		<img src="img/素材1/6.png"/>
+		<img src="img/素材1/7.png"/>
+		<img src="img/素材1/8.png"/>
+		<img src="img/素材1/9.jpg"/>
+		<img src="img/素材2/5.jpg"/>
+		<img src="img/素材2/8.jpg"/>
+		<img src="img/素材4/1.jpg"/>
+		<img src="img/素材4/2.jpg"/>
+		<img src="img/素材4/3.jpg"/>
+		<img src="img/素材4/4.jpg"/>
+		<img src="img/素材4/5.jpg"/>
+		<img src="img/素材4/6.jpg"/>
+		<img src="img/素材4/7.jpg"/>
+		<img src="img/素材4/8.jpg"/>
+		<img src="img/素材4/9.jpg"/>
+		<img src="img/素材6/1.jpg"/>
+		<img src="img/素材6/2.jpg"/>
+		<img src="img/素材6/3.jpg"/>
+		<img src="img/素材6/4.jpg"/>
+		<img src="img/素材6/5.jpg"/>
+		<img src="img/素材6/6.jpg"/>
+		<img src="img/素材6/7.jpg"/>
+		<img src="img/素材6/8.jpg"/>
+		<img src="img/素材6/9.jpg"/>
+	</body>
+</html>

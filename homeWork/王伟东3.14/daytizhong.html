@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+			<style type="text/css">
+				*{
+					margin:0;
+					padding:0; 
+				}
+				body{
+					height: 470px;
+					background:url(img/timg.jpg)no-repeat; 
+					background-size: cover;: 
+				}
+				.box{
+					width: 500px;
+					height: 200px;
+					margin-top: 130px;
+					margin-left: 150px;
+					font-size: 16px;
+					font-family: '微软雅黑';
+					text-shadow: 2px 2px 5px green;
+				}
+				#btn{
+					width: 60px;
+					height: 40px;
+					font-size: 14px;
+					font-family: '微软雅黑';
+					background:linear-gradient(to bottom,red,yellow);
+					border: 0;
+					color: #fff;
+					border-radius:5px; 
+					display: block;
+					margin-top: 40px;
+					margin-left: 20px;
+					cursor: pointer;
+				}
+			</style>
+
+			<script type="text/javascript">
+			window.onload = function () {
+				//获取变量名
+				var
+					oHeight = document.getElementById('height'),
+					oWeight = document.getElementById('weight'),
+					oBtn    = document.getElementById('btn');
+			//添加点击click事件
+			oBtn.onclick = function () {
+				var
+					iJieguo =(oHeight.value - 108)*2,
+					iWeight = oWeight.value,
+					iHeight = oHeight.value;
+
+					if(isNaN(Number(iHeight))){
+					alert('请填写正常身高值');
+				}
+					if(isNaN(Number(iWeight))){
+					alert('请填写正常体重值');
+				}
+					if(iHeight ===''){alert("身高不能为空")}
+					if(iWeight ===''){alert("体重不能为空")}
+
+
+					else if(iJieguo - iWeight >= 10){alert("您有点偏胖，少吃点吧。")}
+					else if(iJieguo - iWeight <= -10){alert("您有点偏瘦，多兑点吧。")}
+					else if(iJieguo - iWeight >= -10 || sFat - iWeight <= 10)
+						{alert("您有点偏旁，少吃点吧。")}
+				
+				
+				
+			}
+		};
+
+
+			</script>
+	</head>
+
+	<body>
+	<div class="box">
+		请输入您的体重<input type="text" id="weight"  placeholder="请输入正确体重值" />Kg<br/>
+		请输入您的身高<input type="text" id="height"  placeholder="请输入正确身高值"/>Cm<br/>
+		<button id="btn">查询</button>
+	</div>
+	</body>
+	</html>

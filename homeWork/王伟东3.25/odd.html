@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>隔行换色</title>
+		<style>
+			*{
+				margin: 0;
+				font-family: "微软雅黑";
+				padding: 0;
+			}
+			li{
+				list-style: none;
+				text-align: center;
+				border: 2px solid goldenrod;
+				color: #000;
+				line-height: 40px;
+				font-size: 20px;
+			}
+			div li:nth-of-type(odd){
+				background: gold;
+			}
+			div li:nth-of-type(even){
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript">
+		window.onload = function (){
+		
+			var oBox = document.getElementById('box');
+			
+			var oFragment = document.createDocumentFragment();
+			
+				for (var i = 1;i <= 30;i++) {
+					var oLi = document.createElement('li');
+					oLi.innerHTML = '第'+ i +'个羊';
+					oFragment.appendChild(oLi);
+					
+				}
+				oBox.appendChild(oFragment);
+				
+
+		}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

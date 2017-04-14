@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="comon.js"></script>
+		<script type="text/javascript" src="ajax.js"></script>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn = $('btn');
+				
+				oBtn.onclick = function(){
+					
+					ajax('return.html',function(str){
+						document.write(str);
+					})
+				};
+			};
+		</script>
+	</head>
+	<body>
+		当点击按钮时,读取alert.text<br />
+		<button id="btn">点击</button>
+	</body>
+</html>

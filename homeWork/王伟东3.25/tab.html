@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片切换</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body,html{
+				width: 100%;
+				height: 100%;
+				background: url(5.jpg) no-repeat center top;
+				background-size:cover ;
+				overflow: hidden;
+			}
+			#box{
+				width: 29%;
+				height: 80%;
+				margin: 40px 300px;
+				border: 6px solid #eee;
+				border-radius: 8px;
+			}
+			a{
+				width: 25%;
+				float: left;
+				text-align: center;
+				line-height: 31px;
+				background:rgba(130,180,220,.7);
+				cursor: pointer;
+				margin-top: -3px;
+				color: #fff;
+				font-family: "微软雅黑";
+				font-size: 20px;
+			}
+			.one{
+				background-color: #FF7F00;
+				color: cyan;
+			}
+			img{
+				display: inline-block;
+				width: 396px;
+				height: 499px;
+				overflow: hidden;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				var oBut = $('button'),
+					oA	 = oBut.children,
+					oGi	 = $('girl');
+					
+				for(var i = 0; i < oA.length; i++){
+					oA[i].index = i;
+					oA[i].onclick = function () {
+						
+						oGi.src = (this.index + 1) + '.jpg';
+						for (var j = 0; j < oA.length;j++) {
+							oA[j].className = '';
+						}
+						this.className ='one';
+					}
+				}
+			}
+			function $(id){
+				return document.getElementById(id);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<img src="1.jpg" id="girl">
+			<div id="button">
+				<a>Lolita</a>
+				<a>Queen</a>
+				<a>Empress</a>
+				<a>Goddess</a>
+			</div>
+		</div>
+	</body>
+</html>

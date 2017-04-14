@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		var Sz = 0;
+			document.write('闰年为');
+			document.write('<br/>');
+			for	(i = 1000;i <= 2000;i++) {
+				if(i % 4 === 0){
+					Sz++
+					document.write(i+'年');
+					
+					if(Sz === 4){
+						Sz =0;
+						document.write('<br/>');
+					}
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

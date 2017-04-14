@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>百度一下</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family:"微软雅黑";
+			}
+			#pic{
+				width: 270px;
+				height: 129px;
+				margin: auto;
+				margin-top: 80px;
+			}
+			img{
+				width: 270px;
+				height: 129px;
+			}
+			form[name=box]{
+				width: 638px;
+				height: 40px;
+				margin: auto;
+			}
+			input[name=soso]{
+				width: 536px;
+				height: 40px;
+				box-sizing: border-box;
+				font-size: 16px;
+				text-indent: 10px;
+				outline: none;
+			}
+			input[name=sub]{
+				border: 0;
+				cursor: pointer;
+				background-color: #38f;
+				width: 102px;
+				height: 40px;
+				color: #fff;
+				font-size:16px;
+				vertical-align: bottom;
+			}
+			#list{
+				list-style: none;
+				border: 1px solid #ccc;
+				width: 534px;
+				display: none;
+			}
+			#list li{
+				line-height: 30px;
+				font-weight: 500;
+				text-indent: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="pic">
+			<img src="img/1.png">
+		</div>
+		<form  action="javascript:;" name="box">
+			<input type="text" name="soso" id="soso"/><input type="submit" value="百度一下" name="sub" id="sub"/>
+			<ul id="list"></ul>
+		</form>
+		
+		<script type="text/javascript">
+			//创建一个回调函数
+			function callback(data){
+				//获取ul
+				var oList = document.getElementById('list');
+				//将ul里的内容清空
+					oList.innerHTML = '';
+					//循环遍历callback函数取回的数据
+			data.s.forEach(function (v) {
+				//创建li
+				var oLi = document.createElement('li');
+				//将内容赋给li
+					oLi.innerHTML = v;
+				//将li追加到ul当中	
+				oList.appendChild(oLi);
+			});
+		}
+			//页面加载完成后
+			window.onload = function(){
+				var	
+				//获取元素
+					oList = document.getElementById('list'),
+					oSo		= document.getElementById('soso'),
+					oSub	= document.getElementById('sub');
+				//给搜索框添加input事件
+				oSo.oninput = function(){
+					//olist的样式display为block
+					oList.style.display = 'block'
+					//创建一个script标签
+					var oScript	= document.createElement('script');
+					//将script标签的src等于
+					oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+this.value+'&json=1&p=3&sid=1468_21119_20928&req=2&csor=1&cb=callback';
+					//将oScript追加到body里
+					document.body.appendChild(oScript);
+					//移除oScript标签
+					document.body.removeChild(oScript);
+				}
+				
+				//当搜索框失去焦点时候
+				oSo.onblur = function(){
+					//样式为none
+					oList.style.display = 'none'
+				}
+				//当搜索框获取焦点的时候
+				oSo.onfocus = function(){
+					//样式为block
+					oList.style.display = 'block'
+					//重复以上匹配
+					var oScript	= document.createElement('script');
+					oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+this.value+'&json=1&p=3&sid=1468_21119_20928&req=2&csor=1&cb=callback';
+					
+					document.body.appendChild(oScript);
+					document.body.removeChild(oScript);
+				
+				}
+			}
+				
+		</script>
+	</body>
+</html>

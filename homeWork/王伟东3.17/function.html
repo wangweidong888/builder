@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>编写一个函数，输入n为偶数时，调用函数求1/2+1/4+...+1/n,当输入n为奇数时，调用函数求/1+1/3+...+1/n。</title>
+		<script type="text/javascript">
+			/*window.onload = function () {
+				//获取变量
+				var 
+					oA = $('a'),
+					oBtn = $('btn');
+					
+				//添加点击事件
+				oBtn.onclick = function () {
+					var 
+						iA = Number(oA.value);
+						
+						
+						
+					iA%2 ===0?even():odd();
+					
+						
+					
+			
+				//偶数算法
+				
+					function even () {
+						var sum = 0;
+							for(i = 1; 2*i <= iA;i++){
+								sum += 1 / (2*i);
+							}console.log(sum);
+						}
+			
+				
+				//奇数算法
+					function odd () {
+						var num = 0;
+						for (i = 1; 2*i-1 <= iA; i++){
+						num += 1 / (2*i-1);
+						}console.log(num)
+					}
+					
+					
+					
+				}	//封装函数	
+					function $ (id){
+						return document.getElementById(id)
+					}
+				
+			}*/
+			
+			
+			
+			
+			
+			
+			/*//声明函数pro，形参n
+			function pro(n){
+			//如果形参等于2转换成0.5，执行1、n+pro（n-2）值返还n
+						return n===2?0.5:1/n+pro(n-2);
+					}
+			//sum的值等于pro函数执行iA的值
+					sum=pro(iA);
+				}
+			//如果iA模2等于1
+				if(iA%2===1){
+			//声明函数sn，形参n
+					function sn(n){
+			//如果形参n=1转成1执行1/n+sn(n-2)值返还n
+						return n===1?1:1/n+sn(n-2);
+					}
+			//sum等于函数sn执行iA的值。
+					sum=sn(iA);
+				}
+			//最后打印sum的值。
+				console.log(sum)
+
+				}*/
+			
+			
+			
+			
+			
+			
+			
+			window.onload = function () {
+				//获取变量
+				var 
+					oA = $('a'),
+					oBtn = $('btn');
+					
+				//添加点击事件
+				oBtn.onclick = function () {
+					var iA = Number(oA.value);
+			
+			
+			
+			
+			
+			
+				if(iA % 2 ===0){	
+					function even(n) {
+				 	return n===2?0.5:1/n+even(n-2);
+				 	}
+				sum=even(iA);
+				
+				}
+				if(iA % 2 ===1){
+					function odd(c) {
+					return c===1?1:1/ c+odd(c-2);
+					}
+					sum=odd(iA);
+					}
+				alert(sum);
+				
+				
+				}
+			}//封装函数	
+			function $ (id){
+				return document.getElementById(id)
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="a" placeholder="请输入数字"/>
+		<button id="btn">计算</button>
+	</body>
+</html>

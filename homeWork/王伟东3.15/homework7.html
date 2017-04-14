@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+		      var a = 0, b = 0, c = 0;
+		      
+		      for (var i = 100; i <= 999; i++)
+		      {
+		      	//个位
+		        a = i % 10;
+		        //十位
+		        b = parseInt(((i / 10) % 10));
+		        //百位
+		        c = parseInt(i / 100);
+		        
+		        if (i === a * a * a + b * b * b + c * c * c)
+		        {
+		          document.write('水仙花数： ' + i + '<br/>');
+		        }
+		        
+		      }
+		    
+		   /*  var a = 0,b = 0,c = 0;
+		     for(var i = 100; i <= 999;i++){
+		     	
+		     	a = (i / 1) % 10; 
+		     	b = parseInt(i/ 10) % 10;
+		     	c = parseInt(i / 100);
+		     	
+		     	if(i === a*a*a+b*b*b+c*c*c){
+		     		document.write(i+'、');
+		     	}
+		     }*/
+		     
+		     
+		     
+	
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

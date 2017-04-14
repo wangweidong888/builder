@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 150px;
+				height: 150px;
+				margin-bottom: 5px;
+				margin-right: 5px;
+			}
+			#box div{
+				width: 150px;
+				height: 150px;
+				position: absolute;
+			}
+			#box{
+				width: 470px;
+				height: 470px;
+				position: absolute;
+				left: 33%;
+				top: 10%;
+			}
+			#box div:nth-of-type(2){
+				left: 155px;
+			}
+			#box div:nth-of-type(3){
+				left: 310px;
+			}
+			#box div:nth-of-type(4){
+				top: 155px;
+				left: 0;
+			}
+			#box div:nth-of-type(5){
+				top: 155px;
+				left: 155px;
+			}
+			#box div:nth-of-type(6){
+				top: 155px;
+				left: 310px;
+			}
+			#box div:nth-of-type(7){
+				top: 310px;
+				left: 0;
+			}
+			#box div:nth-of-type(8){
+				top: 310px;
+				left: 155px;
+			}
+			#box div:nth-of-type(9){
+				top: 310px;
+				left: 310px;
+			}
+		</style>
+		
+		<script type="text/javascript" src="common.js"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+				var oBox = $('box'),
+					oDiv = oBox.children,
+					oBox1 = $('box1'),
+					oBox2 = $('box2'),
+					oBox3 = $('box3'),
+					oBox4 = $('box4'),
+					oBox5 = $('box5'),
+					oBox6 = $('box6'),
+					oBox7 = $('box7'),
+					oBox8 = $('box8'),
+					oBox9 = $('box9');
+					
+					
+				
+				//第一个图片	
+					oBox1.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox1.offsetLeft;
+						iY = ev.clientY - oBox1.offsetTop;
+						
+						if(oBox1.setCapture){
+							oBox1.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox1.style.left = iX1 + 'px';
+						oBox1.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox1.setCapture){
+							oBox1.setCapture();
+							}
+						}
+					return false;
+					
+				}
+					//第二个图片
+					oBox2.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox2.offsetLeft;
+						iY = ev.clientY - oBox2.offsetTop;
+						
+						if(oBox2.setCapture){
+							oBox2.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox2.style.left = iX1 + 'px';
+						oBox2.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox2.setCapture){
+							oBox2.setCapture();
+							}
+						}
+					return false;
+					
+				}
+					//第三个
+					oBox3.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox3.offsetLeft;
+						iY = ev.clientY - oBox3.offsetTop;
+						
+						if(oBox2.setCapture){
+							oBox2.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox3.style.left = iX1 + 'px';
+						oBox3.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox3.setCapture){
+							oBox3.setCapture();
+							}
+						}
+					return false;
+					
+				}
+					//第四个
+					oBox4.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox4.offsetLeft;
+						iY = ev.clientY - oBox4.offsetTop;
+						
+						if(oBox4.setCapture){
+							oBox4.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox4.style.left = iX1 + 'px';
+						oBox4.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox4.setCapture){
+							oBox4.setCapture();
+							}
+						}
+					return false;
+					
+				}
+					//第五个
+					oBox5.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox5.offsetLeft;
+						iY = ev.clientY - oBox5.offsetTop;
+						
+						if(oBox5.setCapture){
+							oBox5.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox5.style.left = iX1 + 'px';
+						oBox5.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox5.setCapture){
+							oBox5.setCapture();
+							}
+						}
+					return false;
+					
+				}
+					//第六个
+					oBox6.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox6.offsetLeft;
+						iY = ev.clientY - oBox6.offsetTop;
+						
+						if(oBox6.setCapture){
+							oBox6.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox6.style.left = iX1 + 'px';
+						oBox6.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox6.setCapture){
+							oBox6.setCapture();
+							}
+						}
+					return false;
+					
+				}
+					//第七个
+					oBox7.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox7.offsetLeft;
+						iY = ev.clientY - oBox7.offsetTop;
+						
+						if(oBox7.setCapture){
+							oBox7.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox7.style.left = iX1 + 'px';
+						oBox7.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox7.setCapture){
+							oBox7.setCapture();
+							}
+						}
+					return false;
+					
+				}
+					//第八个
+					oBox8.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox8.offsetLeft;
+						iY = ev.clientY - oBox8.offsetTop;
+						
+						if(oBox8.setCapture){
+							oBox8.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox8.style.left = iX1 + 'px';
+						oBox8.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox8.setCapture){
+							oBox8.setCapture();
+							}
+						}
+					return false;
+					
+				}
+					//第九个
+					oBox9.onmousedown = function (ev) {
+						var ev = ev || window.event;
+						
+						iX = ev.clientX - oBox9.offsetLeft;
+						iY = ev.clientY - oBox9.offsetTop;
+						
+						if(oBox9.setCapture){
+							oBox9.setCapture();
+						}
+					document.onmousemove = function () {
+						var ev = ev || window.event;
+						iX1 = ev.clientX - iX;
+						iY1 = ev.clientY - iY;
+						
+						oBox9.style.left = iX1 + 'px';
+						oBox9.style.top = iY1 + 'px';
+						}
+					
+					document.onmouseup = function () {
+						document.onmousedown = null;
+						document.onmousemove = null;
+						if(oBox9.setCapture){
+							oBox9.setCapture();
+							}
+						}
+					return false;
+					
+				} 
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<div id="box1"><img src="img/1.jpeg"></div>
+			<div id="box2"><img src="img/2.jpeg"></div>
+			<div id="box3"><img src="img/3.jpeg"></div>
+			<div id="box4"><img src="img/4.jpeg"></div>
+			<div id="box5"><img src="img/5.jpeg"></div>
+			<div id="box6"><img src="img/6.jpeg"></div>
+			<div id="box7"><img src="img/7.jpeg"></div>
+			<div id="box8"><img src="img/8.jpeg"></div>
+			<div id="box9"><img src="img/9.jpeg"></div>
+		</div>
+	</body>
+</html>

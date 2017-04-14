@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹出随便拖</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body,html{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			#box1,#box2{
+				width: 200px;
+				height: 200px;
+				background-color: rgba(230,180,164,.8);
+				font-family: "微软雅黑";
+				line-height: 80px;
+				text-align: center;
+				text-shadow: 4px 4px 8px #808080;
+				color: #666666;
+				display: none;
+				position: absolute;
+				left: 43%;
+				top: 40%;
+			}
+			#box2{
+				background-color: rgba(40,180,224,.8);
+			}
+			#btn1,#btn2{
+				display: block;
+				margin: auto;
+				margin-top: 99px;
+				width: 200px;
+				height: 40px;
+				
+			}
+			img{
+				position: absolute;
+				top: 0;
+				right: 0;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript" src="common.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn1 = $('btn1'),
+					oBox1 = $('box1'),
+					oBox2 = $('box2'),
+					oBtn2 = $('btn2'),
+					oImg1 = $('img1'),
+					oImg2 = $('img2'),
+					iWinW = document.documentElement.clientWidth,
+					iWinH = document.documentElement.clientHeight;
+					
+				oBtn1.onclick = function () {
+					oBox1.style.display = 'block';
+				};
+				
+				oBox1.onmousedown = function (ev) {
+							var ev = ev || window.event;
+							iX	= ev.clientX - oBox1.offsetLeft;
+							iY	= ev.clientY - oBox1.offsetTop;
+						if(oBox1.setCapture){
+								oBox1.setCapture();
+							}
+						
+						document.onmousemove = function (ev) {
+							var ev = ev || window.event;
+							iX1 = ev.clientX - iX;
+							iY1 = ev.clientY - iY;
+							iScroll = document.documentElement.scrollTop || document.body.scrollTop;
+							//上侧
+							if(iY1 < 0){
+								iY1 = 0
+							}
+							//左侧
+							if(iX1 < 0){
+								iX1 = 0
+							}
+							//右侧
+							if(iX1 > iWinW - oBox1.offsetWidth ){
+								iX1 = iWinW - oBox1.offsetWidth;
+							}
+							// 下侧
+							if(iY1 > iWinH - oBox1.offsetHeight + iScroll) {
+								iY1 = iWinH - oBox1.offsetHeight + iScroll;
+							}
+							
+							oBox1.style.left = iX1 + 'px';
+							oBox1.style.top = iY1 + 'px';
+							}
+						
+						document.onmouseup = function () {
+							document.onmousedown = null;
+							document.onmousemove = null;
+						if(oBox1.setCapture){
+								oBox1.setCapture();
+								}	
+							}
+						return false;
+							
+						}
+				
+				//第二个弹出窗
+				oBtn2.onclick = function () {
+					oBox2.style.display = 'block';
+				}
+				
+				oBox2.onmousedown = function (ev) {
+					var ev = ev || window.event;
+					sX = ev.clientX - oBox2.offsetLeft;
+					sY = ev.clientY - oBox2.offsetTop;
+					if(oBox2.setCapture){
+						oBox2.setCapture();
+					}
+				document.onmousemove = function () {
+					var ev = ev || window.event;
+					sX1 = ev.clientX - sX;
+					sY1 = ev.clientY - sY;
+					iScroll = document.documentElement.scrollTop || document.body.scrollTop;
+					iScroll1 = document.documentElement.scrollLeft || document.body.scrollLeft;
+							//上侧
+							if(sY1 < 0){
+								sY1 = 0
+							}
+							//右边
+							if(sX1 > iWinW - oBox2.offsetWidth ){
+								sX1 = iWinW - oBox2.offsetWidth;
+							}
+							//左侧
+							if(sX1 < 0){
+								sX1 = 0
+							}
+							// 下侧
+							if(sY1 > iWinH - oBox2.offsetHeight + iScroll) {
+								sY1 = iWinH - oBox2.offsetHeight + iScroll;
+							}
+					oBox2.style.left = sX1 + 'px';
+					oBox2.style.top  = sY1 + 'px';
+					}
+				document.onmouseup = function () {
+					document.onmousedown = null;
+					document.onmousemove = null;
+					if(oBox2.setCapture){
+						oBox2.setCapture();
+						}
+					}
+					return false;
+				}
+				oImg1.onclick = function () {
+					oBox1.style.display = 'none';
+				}
+				oImg2.onclick = function () {
+					oBox2.style.display = 'none';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn1">点我弹出随便拖</button>
+		<button id="btn2">我也可以的</button>
+		<div id="box1">像炊烟袅袅几许，<br/>棠梨煎雪又落雨。<img src="5.gif" id="img1"></div>
+		<div id="box2">像大鱼弥天亘地 ，<br/>海棠依旧。<img src="5.gif" id="img2"></div>
+	</body>
+</html>

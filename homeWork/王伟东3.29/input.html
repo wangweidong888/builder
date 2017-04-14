@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单应用</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			#box{
+				width: 500px;
+				height: 600px;
+				margin: 20px auto;
+			}
+			h3{
+				line-height: 35px;
+			}
+			span{
+				color: red;
+			}
+			p{
+				display: inline-block;
+				width: 250px;
+				line-height: 40px;
+				margin-top: 10px;
+			}
+			input{
+				height: 25px;
+				width: 180px;
+				background-color: #ccc;
+				border: 0;
+				border: 2px solid #ddd;
+				margin-top: 10px;
+			}
+			input:nth-of-type(3),input:nth-of-type(4){
+				background-color: firebrick;
+			}
+			textarea{
+				width: 240px;
+				height: 80px;
+				margin-top: 25px;
+				resize:none;
+			}
+			button{
+				display: block;
+				width: 100px;
+				height: 40px;
+				margin: auto;
+				margin-top: 20px;
+				margin-bottom: 40px;
+				border-radius:8px ;
+				border: 0;
+				background: gold;
+				color: #000;
+				font-weight: 800;
+				cursor: pointer;
+			}
+			#tl1,#tl2,#tl3,#tl4,#tl5,#tl6{
+				position: absolute;
+				color: red;
+				display: none;
+			}
+			#tl1{
+				top: 78px;
+				right: 235px;
+			}
+			#tl2{
+				top: 129px;
+				right: 331px;
+			}
+			#tl5{
+				top: 178px;
+				right: 330px;
+			}
+			#tl3{
+				top: 225px;
+				right: 215px;
+			}
+			#tl4{
+				top: 276px;
+				right: 331px;
+			}
+			#tl6{
+				top: 603px;
+				right: 361px;
+			}
+			#tl7{
+				width:120px;
+				height: 100px;
+				background: url(e5268c3f8794a4c24876c0a90ef41bd5ac6e390c.gif) no-repeat center center;
+				background-size:cover ;
+				font-size: 14px;
+				color: #000;
+				line-height: 50px;
+				text-align: center;
+				border-radius:8px ;
+				position: absolute;
+				top: 350px;
+				left: 620px;
+				display: none;
+			}
+			#strong{
+				width: 200px;
+				height: 20px;
+				line-height: 20px;
+				background-color: #000;
+				text-align: center;
+				color: #fff;
+				margin-left: 120px;
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+			#img{
+				background-color:#fff;
+				border: 0;
+			}
+			#tip{
+				text-align: center;
+				line-height: 40px;
+				color: #bbb;
+				font-size: 14px;
+			}
+		</style>
+		<script type="text/javascript" src="common.js"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+				var oForm 		= $('list'),
+					oBtn		= $('btn'),
+					oTl1		= $('tl1'),
+					oTl2		= $('tl2'),
+					oTl3		= $('tl3'),
+					oTl4		= $('tl4'),
+					oTl5		= $('tl5'),
+					oTl6		= $('tl6'),
+					oTl7		= $('tl7'),
+					oStrong		= $('strong'),
+					oAccount 	= oForm.account,
+					oName		= oForm.username,
+					oEmail 		= oForm.email,
+					oHttp		= oForm.http,
+					oBtn		= $('btn'),
+					oPassword	= oForm.password,
+					oPassword1	= oForm.password1;
+					
+					
+				oAccount.onblur = function () {
+					var Account = oAccount.value,
+						oReg	 = /^\b[a-z]\d{4,8}$/g,
+						Bg 	= oReg.test(Account);
+						
+						if(Bg === true){
+							oTl1.style.display = 'none'
+						}else{
+							oTl1.style.display = 'block'
+						}
+				}
+				oName.onblur = function () {
+					var Name = oName.value,
+						oReg = /^[\u2E80-\u9FFF]{2,6}$/g,
+						Bg 	= oReg.test(Name);
+						
+						if(Bg === true){
+							oTl2.style.display = 'none'
+						}else{
+							oTl2.style.display = 'block'
+						}
+				}
+				oEmail.onblur = function () {
+					var Name = oEmail.value,
+						oReg = /^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/,
+						Bg 	= oReg.test(Name);
+						
+						if(Bg === true){
+							oTl5.style.display = 'none'
+						}else{
+							oTl5.style.display = 'block'
+						}
+				}
+				
+				oPassword.onblur = function () {
+					var Name = this.value,
+						oReg = /^[a-zA-Z]\d{7,11}$/,
+						Bg 	= oReg.test(Name);
+						if(Bg === true){
+							oTl3.style.display = 'none';
+							oStrong.style.backgroundColor = 'red';
+							oStrong.innerHTML = '强';
+						}else{
+							oTl3.style.display = 'block'
+							oStrong.style.backgroundColor = '#000';
+							oStrong.innerHTML = '密码强度评估';
+						}
+						
+						
+						
+				}		
+				oPassword1.onblur = function () {
+					var Name = this.value;
+						
+						if(Name === oPassword.value){
+							oTl4.style.display = 'none'
+						}else{
+							oTl4.style.display = 'block'
+						}
+				}
+				oHttp.onblur = function () {
+					var Name = this.value,
+						oReg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/,
+						Bg 	= oReg.test(Name);
+						
+						if(Bg === true){
+							oTl6.style.display = 'none'
+						}else{
+							oTl6.style.display = 'block'
+						}
+				}
+				oBtn.onclick = function() {
+					var account	=	oAccount.value,
+						Name	=	oName.value,
+						Email	=	oEmail.value,
+						Http	=	oHttp.value;
+						
+					if(account||Name||Email||Http === ''){
+						alert('注册失败,注册内容禁止为空')
+					}else{
+						oTl7.style.display = 'block';
+					var time = setInterval(function(){
+						oTl7.style.display = 'none';
+						},2000);
+					}
+						
+					
+				
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+		<h3>注册账号</h3>
+		<hr />
+		<form id="list" action="javascript:;">
+			<p>登陆账号<span>*</span></p><input type="text" name="account" placeholder="小写字母开头5~9位账号"/>
+			<p>你的昵称</p><input type="text" name="username" placeholder="中英文即可"/>
+			<p>电子邮件<span>*</span></p><input type="email" name="email" placeholder="请输入正确的邮箱格式"/>
+			<p>设置密码<span>*</span></p><input type="password" name="password" placeholder="8~12位字母加数字"/>
+			<p>确认密码<span>*</span></p><input type="password" name="password1"/>
+			<div id="strong">密码强度评估</div>
+			<p>上传头像</p><input type="file" name="img" id="img"/>
+			<div id="tip">可上传像素为100*100的图片</div>
+			<p style="float: left;">个人说明</p><textarea placeholder="个人说明" name="say" style="float: left;"></textarea>
+			<p>个人主页</p><input type="url" name="http" placeholder="必须以http://或者https://开头"/>
+			<hr style="margin-top: 20px;"/>
+			<button id="btn">注册</button>
+		</form>
+		</div>
+		<div id="tl1">请输入5~9位以小写字母开头的账号</div>
+		<div id="tl2">请输入2~6个字的中文</div>
+		<div id="tl3">请输入正确的密码格式12位字母加数字</div>
+		<div id="tl4">两次输入的密码不一致</div>
+		<div id="tl5">请输入正确的邮箱格式</div>
+		<div id="tl6">请输入正确的网址</div>
+		<div id="tl7">恭喜<br />注册成功<br/>2秒后关闭</div>
+	</body>
+</html>

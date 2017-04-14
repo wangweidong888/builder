@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>div双击出发事件</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background:url(img/1489192921735.jpg) no-repeat center center;
+			}
+			#a{
+				width: 50%;
+				height: 400px;
+				background: rgba(168,120,220,.7);
+				margin: 80px auto;
+				font-size: 30px;
+				line-height: 200px;
+				font-family: "微软雅黑";
+				text-align: center;
+				color: coral;
+				cursor: pointer;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				var 
+					oA = document.getElementById('a');
+					
+			oA.ondblclick = function () {
+				
+					console.log('宽:'+news(oA,'width'));
+					console.log('行高:'+news(oA,'line-height'));
+					console.log('高:'+news(oA,'height'));
+					console.log('背景色:'+news(oA,'background'));
+					console.log('外边距值:'+news(oA,'margin'));
+					console.log('字体颜色:'+news(oA,'color'));
+					console.log('字体:'+news(oA,'font-family'));
+					console.log('字体垂直居中:'+news(oA,'text-align'));
+					console.log('字体大小:'+news(oA,'font-size'));
+				}
+				
+			
+			}
+			function news (obje,atter) {
+					if(obje.currentStyle){
+						return obje.currentStyle[atter];
+					}else{
+						return getComputedStyle(obje,false)[atter];
+					}
+				}
+		</script>
+	</head>
+	<body>
+		<div id="a">
+			双击<br/>
+			控制台查看样式
+		</div>
+	</body>
+</html>

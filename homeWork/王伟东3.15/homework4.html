@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>打印三角形❤</title>
+		<script type="text/javascript">
+		
+			for(i = 0;i < 4;i++){
+				document.write('❤❤❤❤❤❤❤❤❤❤');
+				document.write('<br/>');
+			}
+			document.write('--------------------------------------------------<br/>');
+			
+			for(i = 0;i <5;i++){
+				for(s = 0; s <= i;s++){
+				
+					document.write('❤');
+				}	document.write('<br/>');
+			}
+			document.write('--------------------------------------------------<br/>');
+			//控制行数
+			for(i = 1;i <=5;i++){
+				//控制空格
+				for(e = 0;e < 5 - i;e++){
+					document.write('&ensp;&ensp;');
+					
+				}
+				//控制心数
+				for(s = 0;s < i;s++){
+					
+					document.write('❤');
+					
+				}document.write('<br/>');
+			}
+			document.write('--------------------------------------------------<br/>');
+			
+			//控制行数
+			var X = 0;
+			for(i = 1;i <= 8;i++){
+				
+				var a = X * 2 -1;
+				
+				if(i > 4){
+					X--
+				}
+				else{
+					X++
+				}
+			//输出空格	
+				for(var e = 0;e < (7 - a) / 2;e++){
+					
+					document.write('&ensp;&ensp;');
+					
+				}
+			//控制心数
+				for(var c = 0;c < a;c++){
+					
+					document.write('❤');
+					
+				}document.write('<br/>');
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

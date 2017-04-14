@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>练习</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				width: 100%;
+				height: 2000px;
+			}
+			#two{
+				background: red;
+			}
+		</style>
+		<script type="text/javascript">
+		//window 自己
+			window.onload = function () {}
+				//window.statusbar='我是俺村最强的。'
+				//window 自己
+				//console.log(window.self);
+				//窗口开启者、
+				//window.open('a1.html');
+				//confirm弹出框
+				//window.confirm('true or false');
+				//prompt弹出框
+				//window.prompt('说说你今年多大了！');
+				//history length历史浏览长度
+				//navigator对象appName
+				//console.log(navigator.appName);
+				//appVersion浏览器版本
+				//console.log(navigator.appVersion);
+				//platform操作系统
+				//console.log(navigator.platform);
+				//userAgent 用户代理信息
+				//console.log(navigator.userAgent);
+				//onload页面加载事件
+				//window.onload = function () {}
+				//onscroll滚动事件
+				/*window.onscroll = function () {
+					console.log('想炊烟袅袅几许，棠梨煎雪又落雨。')
+					//console.log(document.documentElement.scrollLeft || document.body.scroolLeft);
+					console.log(document.documentElementscrollTop || document.body.scrollTop);
+				}*/
+				//onresize窗口缩放事件
+				/*window.onresize = function () {
+					console.log('想炊烟袅袅几许，棠梨煎雪又落雨。');
+					
+				}
+				window.onload = function() {
+					console.log(document.documentElement.clienWidth);
+					console.log(document.documentElement.clienHeight);
+				}*/
+				
+				
+				//DOM
+				
+				//window.onload = function () {
+					//title设置或返回title
+					//document.title = '一霸';
+					//返回所有元素
+					//var have = document.all;
+					//forms返回所有form对象
+					//var list = document.forms;
+					//getElementById(id) 返回拥有指定id的第一个元素
+					//var list = document.getElementById('one');
+					//getElementsByTagName返回有指定签名的对象合集
+					//var list = document.getElementsByTagName('*');
+					//getElementsByName返回有指定name名的对象、主要适用于表单
+					//var list = document.getElementsByName('a');
+					//getElementsByClassName返回有指定class名的对象、有兼容问题
+					//var list = document.getElementsByClassName('aa');
+					//}
+					
+					/*function getClass (aa) {
+						if(document.getElementsByClassName){
+							var list = document.getElementsByClassName('aa');
+						}else{
+							var list1 = document.getElementByClassName('aa');
+							var list = [];
+							for(var i = 0; i < list.length;i++){
+								if(list1[i].className === 'aa' ){
+									list.push(list[i]);
+								}
+							}
+							
+						}return list;
+					}
+					console.log(getClass('aa'));*/
+					
+					//获得class名的兼容写法
+					/*function getClass() {
+						if(document.getElementsByClassName){
+							var list = document.getElementsByClassName('aa');
+						}else{
+							var list1 = document.getElementsByTagName('*');
+							var list = [];
+							for(var i = 0; i < list1.length;i++){
+								if(list1[i].className === 'aa'){
+									list.push(list[i]);
+								}
+							}
+						}return list;
+					}
+					console.log(getClass('cc'));
+				}*/
+				
+				
+				
+				//innerHTML获取对象起始至结束标签内容
+				
+				window.onload = function(){
+					
+				
+				//console.log($('two').innerHTML);
+				//console.log($('two').innerText);
+				//$('two').textContent = 'Sleep';
+				//console.log($('two').outHTML = 'hahaahah');
+				//$('two').style.backgroundColor = 'yellow';
+				//console.log($('two').getAttribute('name'));
+				//$('two').setAttribute('name','xxxx');
+				//console.log(getComputedStyle($('two'),null).background);
+				//console.log($(two).currentStyle.width);
+				
+				
+				//获取兼容属性值的写法
+				function getStyle (obj,a) {
+					if(obj.currentStyle){
+						return boj.currentStyle[a];
+					}else{
+						return getComputedStyle(obj,null)[a];
+					}
+				}
+				console.log(getStyle($('two'),'background'));
+				
+				function $(id) {
+					return document.getElementById(id);
+					}
+				
+				}
+		</script>
+	</head>
+	<body>
+		<iframe src="a1.html"></iframe>
+		<div id="one" class="aa"></div>
+		<form name="a" id="one"  class="aa"></form>
+		
+		<div name="b" id="two" class="bb">here<span>you</span>are</div>
+		
+		<form name="c" id="three" class="cc"></form>
+	</body>
+</html>

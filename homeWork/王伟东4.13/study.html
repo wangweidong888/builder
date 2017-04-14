@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>练习</title>
+		<script type="text/javascript">
+			//作用域问题，父级不会找子级提取数据。
+			/*var a = '打印我';
+			function my(){
+				var a = 'Hello';
+			}
+			my();
+			alert(a);
+			*/
+			
+			//当函数my内部没有a变量时，会向父级全局寻找变量a；
+			/*var a;
+			function my(){
+				a = 'Hello';
+			}
+			my();
+			alert(a);*/
+			
+			//闭包， 在全局变量中访问局部变量,首先匿名函数里边a寻找父级变量a，然后return返回匿名函数，匿名函数return返回my，在全局变量中声明 b = 函数my，而后调用函数b，就能获得a的值。  
+			
+			/*function my(){
+				var a = 'Hello';
+				
+				return function(){
+					return a;
+				}
+			}
+			var b = my();
+			alert(b());*/
+			
+			//利用闭包。 修改a的值。
+			/*function my(){
+				var a ='Hello';
+				
+				return function(sB){
+					 a = sB;
+					 alert(sB);
+				}
+			}
+			
+			var b = my();
+			b('Hello Word!!!');*/
+			
+			
+			//非常绕之一道题。
+			function fun(n,o) {
+		    console.log(o);
+	        return {
+	            fun:function(m) {
+	                return fun(m,n);
+	                
+	            }
+	        };
+		}
+		//首先a等于fun函数有两个形参，我们只传入了一个形参，所以o为未定义，所以打印o出现undefinde。
+		//var a = fun(0); //n = 0，o = undefinde
+		//a.fun(1);		/*接着传入m = 1，匿名函数没有n所以找父级。得到m = 1 ，n = 0，与父级对应。所以n = 1 o = 0，所以打印的o为0。*/
+		//a.fun(2);		/*同样道理传入m = 2，得到。m = 2，n = 0；对应。 所以 n = 2  o = 0，所以打印0*/
+		//a.fun(3);		/*道理同上。*/
+
+	
+		/*var b = 根据上述，fun（0）毫无疑问等于undefinde，fun（1）等于0，... 所以到fun（3）的值就为2.结果就是打印undefinde，0,1,2   变量b为复合类型， 所以为一个对象。*/
+		//var b = fun(0).fun(1).fun(2).fun(3);
+
+
+		//对象c = undefind，0。   n = 1 ，o = 0；
+		//var c = fun(0).fun(1);
+		//不难想象以上基础上。打印的o就为1    n = 2， o = 1；
+		//c.fun(2);
+		//由于没有声明保存到内存中去，  所以，c.fun（2）执行结果被回收。此打印结果为n = 3 ， o = 1；
+		//c.fun(3);
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
